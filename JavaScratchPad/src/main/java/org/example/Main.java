@@ -20,6 +20,14 @@ public class Main {
         System.out.println("Inserting 1000 at index 4");
         llist.insert(1000,4);
         llist.print();
+        llist.remove(4);
+        System.out.println("After removing 1000 at index 4");
+        llist.print();
+        System.out.println("Size of List:"+llist.size());
+        llist.remove();
+        System.out.println("After removing last entry");
+        llist.print();
+        System.out.println("Size of List:"+llist.size());
     }
 
     public static boolean isPalindrome(int num){

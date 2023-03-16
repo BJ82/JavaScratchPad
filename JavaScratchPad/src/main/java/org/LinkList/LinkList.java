@@ -67,6 +67,34 @@ public class LinkList {
         }
     }
 
+    /*Remove from specific index*/
+    public void remove(int index){
+        Node prev = getNode(index-1);
+        Node current = getNode(index);
+        prev.setNext(current.getNext());
+        current.setNext(null);
+    }
+
+    /*Remove last entry in the list*/
+    public void remove(){
+        Node secondLast = getNode(size()-1);
+        secondLast.setNext(null);
+    }
+
+    /*Get the size of list*/
+    public int size(){
+
+        if(getHead() == null)
+            return -1;
+
+        int size = 0;
+        Node temp = getHead();
+        while(temp!= null){
+            size++;
+            temp = temp.getNext();
+        }
+        return size;
+    }
     private Node createNode(int data){
         return new Node(data);
     }
