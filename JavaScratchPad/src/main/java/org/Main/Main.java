@@ -1,10 +1,11 @@
-package org.example;
+package org.Main;
 
 import org.LinkList.LinkList;
+import org.Utils.Utils;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Is Palindrome:"+isPalindrome(121));
+        System.out.println("Is Palindrome:"+ Utils.isPalindrome("sts"));
 
         LinkList llist = new LinkList();
         llist.print();
