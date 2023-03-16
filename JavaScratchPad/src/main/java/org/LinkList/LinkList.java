@@ -8,7 +8,7 @@ public class LinkList {
         return head;
     }
 
-    public void setHead(Node head) {
+    private void setHead(Node head) {
         this.head = head;
     }
 
