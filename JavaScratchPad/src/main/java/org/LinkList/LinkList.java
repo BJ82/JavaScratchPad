@@ -1,5 +1,6 @@
 package org.LinkList;
 
+/*Single Linked List*/
 public class LinkList {
 
     private Node head;
@@ -95,11 +96,11 @@ public class LinkList {
         }
         return size;
     }
-    private Node createNode(int data){
+    protected Node createNode(int data){
         return new Node(data);
     }
 
-    private Node getLastNode(){
+    protected Node getLastNode(){
 
         if(getHead() == null)
             return null;
@@ -111,7 +112,7 @@ public class LinkList {
         }
         return temp;
     }
-    private Node getNode(int index){
+    protected Node getNode(int index){
         Node temp = getHead();
 
         for(int i=1;i<index;i++){
