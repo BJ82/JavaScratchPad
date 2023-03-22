@@ -32,21 +32,4 @@ public class Main {
         System.out.println("Size of List:"+llist.size());
     }
 
-    public static boolean isPalindrome(int num){
-        String strNum = Integer.valueOf(num).toString();
-        boolean isPalindrome = false;
-        int last=strNum.length()-1;
-        for(int i=0;i<strNum.length();i++){
-            if(strNum.charAt(i) == strNum.charAt(last)){
-                if(i<=last)
-                    isPalindrome = true;
-                last--;
-            }
-            else{
-                isPalindrome = false;
-                break;
-            }
-        }
-        return isPalindrome;
-    }
 }
