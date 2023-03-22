@@ -1,13 +1,14 @@
 package org.Main;
 
+import org.LinkList.DoubleLinkList;
 import org.LinkList.LinkList;
 import org.Utils.Utils;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Is Palindrome:"+ Utils.isPalindrome("sts"));
+        //System.out.println("Is Palindrome:"+ Utils.isPalindrome("sts"));
 
-        LinkList llist = new LinkList();
+        DoubleLinkList llist = new DoubleLinkList();
         llist.print();
 
         for(int i=6;i>=1;i--){
