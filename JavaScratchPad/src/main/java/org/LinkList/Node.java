@@ -1,13 +1,14 @@
 package org.LinkList;
 
-public class Node {
-    private int data;
+public class Node<T>{
 
-    public int getData() {
+    private T data;
+
+    public T getData() {
         return data;
     }
 
-    public void setData(int data) {
+    public void setData(T data) {
         this.data = data;
     }
 
@@ -32,7 +33,7 @@ public class Node {
     }
 
 
-    public Node(int data) {
+    public Node(T data) {
         this.data = data;
         this.next = null;
         this.prev = null;
