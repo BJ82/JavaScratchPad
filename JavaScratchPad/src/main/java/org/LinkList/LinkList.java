@@ -1,7 +1,7 @@
 package org.LinkList;
 
 /*Single Linked List*/
-public class LinkList {
+public class LinkList <T>{
 
     private Node head;
 
@@ -14,7 +14,7 @@ public class LinkList {
     }
 
     /*Insert at the end of list*/
-    public void insert(int data){
+    public void insertLast(T data){
 
         Node newNode = createNode(data);
         if(getHead() == null){
@@ -27,7 +27,7 @@ public class LinkList {
     }
 
     /*Insert at specified index*/
-    public void insert(int data,int index){
+    public void insert(T data,int index){
         Node newNode = createNode(data);
         if(getHead() == null){
             setHead(newNode);
@@ -37,6 +37,18 @@ public class LinkList {
         Node current = getNode(index);
         newNode.setNext(current);
         prev.setNext(newNode);
+    }
+
+    /*Insert at begining*/
+    public void insertFirst(T data){
+        Node newNode = createNode(data);
+        if(getHead() == null){
+            setHead(newNode);
+            return;
+        }
+
+        newNode.setNext(getHead());
+        setHead(newNode);
     }
 
     /*Reverse the list*/
@@ -77,9 +89,18 @@ public class LinkList {
     }
 
     /*Remove last entry in the list*/
-    public void remove(){
+    public void removeLast(){
         Node secondLast = getNode(size()-1);
         secondLast.setNext(null);
+    }
+
+    /*Remove first entry in the list*/
+    public void removeFirst(){
+        Node temp = getHead();
+        if(temp!=null)
+            setHead(temp.getNext());
+
+        removeNode(temp);
     }
 
     /*Get the size of list*/
@@ -96,7 +117,7 @@ public class LinkList {
         }
         return size;
     }
-    protected Node createNode(int data){
+    protected Node createNode(T data){
         return new Node(data);
     }
 
@@ -119,6 +140,11 @@ public class LinkList {
             temp = temp.getNext();
         }
         return temp;
+    }
+
+    private void removeNode(Node toRemove){
+        toRemove.setNext(null);
+        toRemove=null;
     }
 
 }
