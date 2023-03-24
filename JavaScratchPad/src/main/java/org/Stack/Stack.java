@@ -47,6 +47,7 @@ public class Stack <T>{
 
         T data = (T) getlist().getHead().getData();
         getlist().removeFirst();
+        setTOP(getlist().getHead());
         return data;
     }
 
@@ -61,6 +62,8 @@ public class Stack <T>{
 
     public T getTopEntry(){
 
+        if(getlist().getHead()==null)
+            return null;
         return (T) getlist().getHead().getData();
     };
 
