@@ -103,6 +103,12 @@ public class LinkList <T>{
         removeNode(temp);
     }
 
+    private void removeNode(Node toRemove){
+        toRemove.setNext(null);
+        toRemove=null;
+    }
+
+    
     /*Get the size of list*/
     public int size(){
 
@@ -142,9 +148,6 @@ public class LinkList <T>{
         return temp;
     }
 
-    private void removeNode(Node toRemove){
-        toRemove.setNext(null);
-        toRemove=null;
-    }
+
 
 }
