@@ -1,4 +1,4 @@
 # JavaScratchPad
-So far implemented 
-LinkedList, DoubleLinkedList, Stack(Using LinkedList), palindromeChecker(Utils)
+Implementation For
+LinkedList, DoubleLinkedList, Stack(Using LinkedList), palindromeChecker(Utils), CheckBalancedPaanthesis(Utils)
  
