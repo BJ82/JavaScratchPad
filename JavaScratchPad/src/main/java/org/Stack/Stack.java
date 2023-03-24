@@ -28,7 +28,7 @@ public class Stack <T>{
 
 
     public Stack() {
-        llist = new LinkList();
+        llist = new LinkList<T>();
     }
 
 

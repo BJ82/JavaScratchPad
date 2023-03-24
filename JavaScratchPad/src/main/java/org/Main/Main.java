@@ -7,7 +7,7 @@ import org.Utils.Utils;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Is Palindrome:"+ Utils.isPalindrome("sts"));
+        /*System.out.println("Is Palindrome:"+ Utils.isPalindrome("sts"));
 
         DoubleLinkList llist = new DoubleLinkList();
         llist.print();
@@ -41,12 +41,13 @@ public class Main {
 
         System.out.println("Stack Entries:");
         stk.print();
+        System.out.println("Stack TOP entry:"+stk.getTopEntry());
         stk.pop();
         stk.pop();
         stk.pop();
         System.out.println("Stack Entries After Calling POP:");
-        stk.print();
-
+        stk.print();*/
+        System.out.println("Is Balanced:"+Utils.isBalancedParanthesis(")("));
     }
 
 }

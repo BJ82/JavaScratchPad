@@ -1,5 +1,7 @@
 package org.Utils;
 
+import java.util.*;
+
 public class Utils {
     public static boolean isPalindrome(int num){
         String strNum = intToString(num);
@@ -27,6 +29,62 @@ public class Utils {
     }
     private static String intToString(int i){
         return Integer.valueOf(i).toString();
+    }
+
+    public static boolean isBalancedParanthesis(String s){
+
+        Stack stk = new Stack();
+
+        for(int i=0;i<s.length();i++)
+        {
+            if(isOpening(s.charAt(i)))
+            {
+                stk.push(s.charAt(i));
+            }
+
+            if(isClosing(s.charAt(i)))
+            {
+                char c = 0;
+                if(!stk.isEmpty())
+                    c = (char) stk.pop();
+
+                if(isNoMatch(c,s.charAt(i)))
+                    return false;
+            }
+        }
+
+        if(stk.isEmpty())
+            return true;
+        return false;
+    }
+
+    private static boolean isOpening(char c){
+
+        String opening = "{([";
+
+        if(opening.indexOf(Character.toString(c))!=-1)
+            return true;
+        else
+            return false;
+    }
+
+    private static boolean isClosing(char c){
+        String closing = "})]";
+
+        if(closing.indexOf(Character.toString(c))!=-1)
+            return true;
+        else
+            return false;
+    }
+
+    private static boolean isNoMatch(char c1,char c2){
+        String opening = "{([";
+        String closing = "})]";
+        boolean isNoMatch = false;
+        if(opening.indexOf(Character.toString(c1)) != closing.indexOf(Character.toString(c2)))
+            isNoMatch = true;
+        
+        return isNoMatch;
     }
 
 }
