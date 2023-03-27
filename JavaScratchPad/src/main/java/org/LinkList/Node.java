@@ -24,7 +24,7 @@ public class Node<T>{
 
     private Node prev;
 
-    public Node getPrev() {
+    public Node <T> getPrev() {
         return prev;
     }
 

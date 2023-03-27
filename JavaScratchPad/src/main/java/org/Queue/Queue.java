@@ -5,37 +5,32 @@ import org.LinkList.Node;
 
 public class Queue<T> implements org.Interfaces.Queue <T>{
 
-    private DoubleLinkList list;
+    private final DoubleLinkList<T> list;
 
-    public DoubleLinkList getList() {
-        return list;
-    }
+    private Node <T> front;
 
-
-    private Node front;
-
-    public Node getFront() {
+    public Node <T> getFront() {
         return front;
     }
 
-    private void setFront(Node front) {
+    private void setFront(Node <T> front) {
         this.front = front;
     }
 
 
-    private Node rear;
+    private Node <T> rear;
 
-    public Node getRear() {
+    public Node <T> getRear() {
         return rear;
     }
 
-    private void setRear(Node rear) {
+    private void setRear(Node <T> rear) {
         this.rear = rear;
     }
 
 
     public Queue() {
-        list = new DoubleLinkList();
+        list = new DoubleLinkList<>();
         front = rear = null;
     }
 
@@ -53,7 +48,7 @@ public class Queue<T> implements org.Interfaces.Queue <T>{
     @Override
     public T Deque() {
 
-        T val = (T) getFront().getData();
+        T val =  getFront().getData();
         setFront(getFront().getPrev());
         if(getFront()!=null)
             getFront().setNext(null);
@@ -68,17 +63,17 @@ public class Queue<T> implements org.Interfaces.Queue <T>{
     public T Front() {
         T val;
         if(getFront()!=null)
-            val =  (T) getFront().getData();
-        val =  null;
+            val = getFront().getData();
+        else
+            val =  null;
 
         return val;
     }
 
     @Override
     public boolean isEmpty() {
-        if(size()==-1)
-            return true;
-        return false;
+
+        return size() == -1;
     }
 
     /*Get Size Of Queue*/

@@ -51,10 +51,11 @@ public class Main {
         System.out.println("Is Balanced:"+Utils.isBalancedParanthesis(")("));
 
 
-        Queue<Integer> q = new org.Queue.Queue<Integer>();
+        Queue<Integer> q = new org.Queue.Queue<>();
         for (int i=1;i<=7;i++){
             q.Enque(i);
         }
+
 
         System.out.println("Queue size: "+q.size());
         System.out.println("Queue Entries:");

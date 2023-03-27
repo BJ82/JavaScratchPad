@@ -7,7 +7,7 @@ public class DoubleLinkList<T> extends LinkList<T>{
 
     private Node head;
 
-    public Node getHead() {
+    public Node <T> getHead() {
         return head;
     }
 
