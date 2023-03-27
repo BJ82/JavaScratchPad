@@ -1,5 +1,6 @@
 package org.Main;
 
+import org.Interfaces.Queue;
 import org.LinkList.DoubleLinkList;
 import org.LinkList.LinkList;
 import org.Stack.Stack;
@@ -48,6 +49,18 @@ public class Main {
         System.out.println("Stack Entries After Calling POP:");
         stk.print();
         System.out.println("Is Balanced:"+Utils.isBalancedParanthesis(")("));
+
+
+        Queue<Integer> q = new org.Queue.Queue<Integer>();
+        for (int i=1;i<=7;i++){
+            q.Enque(i);
+        }
+
+        System.out.println("Queue size: "+q.size());
+        System.out.println("Queue Entries:");
+        while(!q.isEmpty()){
+            System.out.println(q.Deque());
+        }
 
     }
 
