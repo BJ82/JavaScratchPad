@@ -1,7 +1,9 @@
 package org.LinkList;
 
+import org.Interfaces.List;
+
 /*Double Linked List*/
-public class DoubleLinkList<T> extends LinkList<T>{
+public class DoubleLinkList<T> implements List<T> {
 
 
 
@@ -123,5 +125,49 @@ public class DoubleLinkList<T> extends LinkList<T>{
 
         }
         setHead(newHead);
+    }
+
+    public int size(){
+
+        if(getHead() == null)
+            return -1;
+
+        int size = 0;
+        Node<T> temp = getHead();
+        while(temp!= null){
+            size++;
+            temp = temp.getNext();
+        }
+        return size;
+    }
+
+    @Override
+    public boolean isEmpty() {
+        return size() == -1;
+    }
+
+    private Node<T> createNode(T data){
+        return new Node<>(data);
+    }
+
+    private Node<T> getLastNode(){
+
+        if(getHead() == null)
+            return null;
+
+        Node<T> temp = getHead();
+
+        while(temp.getNext() != null){
+            temp = temp.getNext();
+        }
+        return temp;
+    }
+    private Node<T> getNode(int index){
+        Node<T> temp = getHead();
+
+        for(int i=1;i<index;i++){
+            temp = temp.getNext();
+        }
+        return temp;
     }
 }

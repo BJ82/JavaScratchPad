@@ -1,7 +1,9 @@
 package org.LinkList;
 
+import org.Interfaces.List;
+
 /*Single Linked List*/
-public class LinkList <T>{
+public class LinkList <T> implements List<T> {
 
     private Node<T> head;
 
@@ -65,21 +67,6 @@ public class LinkList <T>{
         setHead(newHead);
     }
 
-    /*Print list to console*/
-    public void print(){
-
-        if(getHead() == null){
-            System.out.println("List is Empty");
-            return;
-        }
-        Node<T> temp = getHead();
-        System.out.println("List:");
-        while(temp!= null){
-            System.out.println(temp.getData()+" ");
-            temp = temp.getNext();
-        }
-    }
-
     /*Remove from specific index*/
     public void remove(int index){
         Node<T> prev = getNode(index-1);
@@ -126,11 +113,17 @@ public class LinkList <T>{
         }
         return size;
     }
-    protected Node<T> createNode(T data){
+
+    @Override
+    public boolean isEmpty() {
+        return size() == -1;
+    }
+
+    private Node<T> createNode(T data){
         return new Node<>(data);
     }
 
-    protected Node<T> getLastNode(){
+    private Node<T> getLastNode(){
 
         if(getHead() == null)
             return null;
@@ -142,7 +135,7 @@ public class LinkList <T>{
         }
         return temp;
     }
-    protected Node<T> getNode(int index){
+    private Node<T> getNode(int index){
         Node<T> temp = getHead();
 
         for(int i=1;i<index;i++){

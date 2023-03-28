@@ -1,8 +1,26 @@
 package org.Utils;
 
-import java.util.*;
+import org.LinkList.Node;
+
+import org.Interfaces.List;
+import org.Stack.Stack;
 
 public class Utils {
+
+    public static <T> void print(List<T> list){
+
+        if(list.getHead() == null){
+            System.out.println("List is Empty");
+            return;
+        }
+        Node<T> temp = list.getHead();
+        System.out.println("List:");
+        while(temp!= null){
+            System.out.println(temp.getData()+" ");
+            temp = temp.getNext();
+        }
+    }
+
     public static boolean isPalindrome(int num){
         String strNum = intToString(num);
         return checkIfPalindrome(strNum);
