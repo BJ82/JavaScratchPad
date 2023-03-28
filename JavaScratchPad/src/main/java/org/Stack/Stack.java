@@ -7,28 +7,28 @@ import org.LinkList.Node;
 public class Stack <T>{
 
 
-    private Node TOP;
+    private Node<T> TOP;
 
-    public Node getTOP() {
+    public Node<T> getTOP() {
         return TOP;
     }
 
-    private void setTOP(Node TOP) {
+    private void setTOP(Node<T> TOP) {
         this.TOP = TOP;
     }
 
 
 
-    private LinkList llist;
+    private final LinkList<T> list;
 
-    private LinkList getlist() {
-        return llist;
+    private LinkList<T> getlist() {
+        return list;
     }
 
 
 
     public Stack() {
-        llist = new LinkList<T>();
+        list = new LinkList<>();
     }
 
 
@@ -37,7 +37,7 @@ public class Stack <T>{
 
       getlist().insertFirst(entry);
       setTOP(getlist().getHead());
-    };
+    }
 
 
     public T pop(){
@@ -45,7 +45,7 @@ public class Stack <T>{
         if(getTOP()==null)
             return null;
 
-        T data = (T) getlist().getHead().getData();
+        T data = getlist().getHead().getData();
         getlist().removeFirst();
         setTOP(getlist().getHead());
         return data;
@@ -53,19 +53,16 @@ public class Stack <T>{
 
 
     public boolean isEmpty(){
-        if(getTOP()==null)
-            return true;
-        else
-            return false;
-    };
+        return getTOP() == null;
+    }
 
 
     public T getTopEntry(){
 
         if(getlist().getHead()==null)
             return null;
-        return (T) getlist().getHead().getData();
-    };
+        return getlist().getHead().getData();
+    }
 
 
     public void print(){
@@ -73,7 +70,7 @@ public class Stack <T>{
             System.out.println("Stack is Empty");
             return;
         }
-        Node temp = getlist().getHead();
+        Node<T> temp = getlist().getHead();
         System.out.println("Stack:");
         while(temp!= null){
             System.out.println(temp.getData()+" ");

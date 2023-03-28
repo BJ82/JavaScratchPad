@@ -37,7 +37,7 @@ public class Queue<T> implements org.Interfaces.Queue <T>{
     /*Add entry to Queue*/
     @Override
     public void Enque(T entry) {
-        list.insertFirst(entry,true);
+        list.insertFirst(entry);
         if(list.size() == 1)
             setFront(list.getHead());
 
