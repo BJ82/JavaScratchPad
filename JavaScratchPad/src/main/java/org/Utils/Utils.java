@@ -31,9 +31,9 @@ public class Utils {
         return Integer.valueOf(i).toString();
     }
 
-    public static boolean isBalancedParanthesis(String s){
+    public static boolean isBalancedParenthesis(String s){
 
-        Stack stk = new Stack();
+        Stack<Character> stk = new Stack<>();
 
         for(int i=0;i<s.length();i++)
         {
@@ -46,45 +46,34 @@ public class Utils {
             {
                 char c = 0;
                 if(!stk.isEmpty())
-                    c = (char) stk.pop();
+                    c = stk.pop();
 
                 if(isNoMatch(c,s.charAt(i)))
                     return false;
             }
         }
 
-        if(stk.isEmpty())
-            return true;
-        return false;
+        return stk.isEmpty();
     }
 
     private static boolean isOpening(char c){
 
         String opening = "{([";
 
-        if(opening.indexOf(Character.toString(c))!=-1)
-            return true;
-        else
-            return false;
+        return opening.contains(Character.toString(c));
     }
 
     private static boolean isClosing(char c){
         String closing = "})]";
 
-        if(closing.indexOf(Character.toString(c))!=-1)
-            return true;
-        else
-            return false;
+        return closing.contains(Character.toString(c));
     }
 
     private static boolean isNoMatch(char c1,char c2){
         String opening = "{([";
         String closing = "})]";
-        boolean isNoMatch = false;
-        if(opening.indexOf(Character.toString(c1)) != closing.indexOf(Character.toString(c2)))
-            isNoMatch = true;
-        
-        return isNoMatch;
+
+        return opening.indexOf(Character.toString(c1)) != closing.indexOf(Character.toString(c2));
     }
 
 }

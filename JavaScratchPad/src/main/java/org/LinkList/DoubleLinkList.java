@@ -5,22 +5,22 @@ public class DoubleLinkList<T> extends LinkList<T>{
 
 
 
-    private Node head;
+    private Node<T> head;
 
     public Node <T> getHead() {
         return head;
     }
 
-    private void setHead(Node head) {
+    private void setHead(Node<T> head) {
         this.head = head;
     }
 
 
 
-    /*Insert at begining of list*/
-    public void insertFirst(T data,boolean addToBegin){
+    /*Insert at beginning of list*/
+    public void insertFirst(T data){
 
-        Node newNode = createNode(data);
+        Node<T> newNode = createNode(data);
         if(getHead() == null){
             setHead(newNode);
             return;
@@ -37,12 +37,12 @@ public class DoubleLinkList<T> extends LinkList<T>{
     /*Insert at the end of list*/
     public void insertLast(T data){
 
-        Node newNode = createNode(data);
+        Node<T> newNode = createNode(data);
         if(getHead() == null){
             setHead(newNode);
             return;
         }
-        Node last = getLastNode();
+        Node<T> last = getLastNode();
         last.setNext(newNode);
         newNode.setPrev(last);
     }
@@ -51,13 +51,13 @@ public class DoubleLinkList<T> extends LinkList<T>{
 
     /*Insert at specified index*/
     public void insert(T data,int index){
-        Node newNode = createNode(data);
+        Node<T> newNode = createNode(data);
         if(getHead() == null){
             setHead(newNode);
             return;
         }
-        Node prev = getNode(index-1);
-        Node current = getNode(index);
+        Node<T> prev = getNode(index-1);
+        Node<T> current = getNode(index);
         current.setPrev(newNode);
         newNode.setNext(current);
         newNode.setPrev(prev);
@@ -68,8 +68,8 @@ public class DoubleLinkList<T> extends LinkList<T>{
 
     /*Remove from specific index*/
     public void remove(int index){
-        Node prev = getNode(index-1);
-        Node current = getNode(index);
+        Node<T> prev = getNode(index-1);
+        Node<T> current = getNode(index);
         prev.setNext(current.getNext());
         current.getNext().setPrev(prev);
         current.setNext(null);
@@ -80,7 +80,7 @@ public class DoubleLinkList<T> extends LinkList<T>{
     /*Remove last entry in the list*/
     public void removeLast(){
 
-        Node secondLast = getNode(size()-1);
+        Node<T> secondLast = getNode(size()-1);
         secondLast.setNext(null);
 
         removeNode(getNode(size()));
@@ -90,16 +90,19 @@ public class DoubleLinkList<T> extends LinkList<T>{
 
     /*Remove first entry in the list*/
     public void removeFirst(){
-        Node temp = getHead();
-        if(temp!=null)
+        Node<T> temp = getHead();
+        if(temp!=null){
             setHead(temp.getNext());
+            removeNode(temp);
+        }
 
-        removeNode(temp);
+
+
     }
 
 
 
-    private void removeNode(Node toRemove){
+    private void removeNode(Node<T> toRemove){
         toRemove.setNext(null);
         toRemove.setPrev(null);
         toRemove=null;
@@ -108,8 +111,8 @@ public class DoubleLinkList<T> extends LinkList<T>{
 
 
     public void reverse(){
-        Node newHead = null;
-        Node temp;
+        Node<T> newHead = null;
+        Node<T> temp;
         while(getHead()!=null){
             temp = getHead();
             setHead(getHead().getNext());
