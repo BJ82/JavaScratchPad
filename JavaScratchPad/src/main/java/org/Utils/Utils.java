@@ -5,6 +5,8 @@ import org.LinkList.Node;
 import org.Interfaces.List;
 import org.Stack.Stack;
 
+import java.util.ArrayList;
+
 public class Utils {
 
     public static <T> void print(List<T> list){
@@ -92,6 +94,31 @@ public class Utils {
         String closing = "})]";
 
         return opening.indexOf(Character.toString(c1)) != closing.indexOf(Character.toString(c2));
+    }
+
+    public static ArrayList<Integer> BubbleSort(ArrayList <Integer> list){
+
+        int n = list.size();
+        boolean flag = false;
+        for(int i=0;i<n;i++){
+            for(int j=0;j<=(n-i-2);j++){
+                if(list.get(j).compareTo(list.get(j+1)) > 0){
+                    list = swap(list,j,j+1);
+                    flag = true;
+                }
+            }
+            if(flag == false)
+                break;
+        }
+        return list;
+    }
+
+    private static <T> ArrayList swap(ArrayList<T> list,int i,int j){
+        Object temp = list.get(i);
+        list.set(i,list.get(j));
+        list.set(j, (T) temp);
+
+        return list;
     }
 
 }

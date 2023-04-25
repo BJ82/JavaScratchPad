@@ -6,6 +6,8 @@ import org.LinkList.DoubleLinkList;
 import org.Stack.Stack;
 import org.Utils.Utils;
 
+import java.util.ArrayList;
+
 public class Main {
     public static void main(String[] args) {
         System.out.println("Is Palindrome:"+ Utils.isPalindrome("sts"));
@@ -61,6 +63,21 @@ public class Main {
         System.out.println("Queue Entries:");
         while(!q.isEmpty()){
             System.out.println(q.Deque());
+        }
+
+        ArrayList<Integer> l = new ArrayList<Integer>();
+        l.add(4);
+        l.add(2);
+        l.add(5);
+        l.add(10);
+        l.add(3);
+        l.add(7);
+
+        l = Utils.BubbleSort(l);
+
+        System.out.println("Bubble Sort");
+        for(Integer i:l){
+            System.out.println(i);
         }
 
     }
