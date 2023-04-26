@@ -6,6 +6,7 @@ import org.Interfaces.List;
 import org.Stack.Stack;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Utils {
 
@@ -96,13 +97,13 @@ public class Utils {
         return opening.indexOf(Character.toString(c1)) != closing.indexOf(Character.toString(c2));
     }
 
-    public static ArrayList<Integer> BubbleSort(ArrayList <Integer> list){
+    public static int[] BubbleSort(int[] list){
 
-        int n = list.size();
+        int n = list.length;
         boolean flag = false;
         for(int i=0;i<n;i++){
             for(int j=0;j<=(n-i-2);j++){
-                if(list.get(j).compareTo(list.get(j+1)) > 0){
+                if(list[j] > list[j+1]){
                     list = swap(list,j,j+1);
                     flag = true;
                 }
@@ -113,12 +114,49 @@ public class Utils {
         return list;
     }
 
-    private static <T> ArrayList swap(ArrayList<T> list,int i,int j){
-        Object temp = list.get(i);
-        list.set(i,list.get(j));
-        list.set(j, (T) temp);
+    private static  int[] swap(int[] list,int i,int j){
+        int temp = list[i];
+        list[i] = list[j];
+        list[j] = temp;
 
         return list;
+    }
+
+    public static int[] InsertionSort(int[] list){
+
+        int value;
+        int hole;
+        for(int i=1;i<list.length;i++){
+            value = list[i];
+            hole = i;
+            while(hole>0 && list[hole-1]>value)
+            {
+                list[hole] = list[hole-1];
+                hole--;
+            }
+            list[hole] = value;
+        }
+        return list;
+    }
+
+    public static int[] SelectionSort(int[] list){
+        int n = list.length;
+        int imin;
+        for(int i=0;i<n-2;i++){
+            imin = i;
+            for(int j=i+1;j<n;j++){
+                if(list[j] < list[imin])
+                    imin = j;
+            }
+            swap(list,i,imin);
+        }
+        return list;
+    }
+
+    public static <T> void printArray(T [] arry){
+        for(T i:arry){
+            System.out.println(i);
+        }
     }
 
 }

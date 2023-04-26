@@ -7,6 +7,7 @@ import org.Stack.Stack;
 import org.Utils.Utils;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) {
@@ -65,20 +66,30 @@ public class Main {
             System.out.println(q.Deque());
         }
 
-        ArrayList<Integer> l = new ArrayList<Integer>();
-        l.add(4);
-        l.add(2);
-        l.add(5);
-        l.add(10);
-        l.add(3);
-        l.add(7);
 
-        l = Utils.BubbleSort(l);
+        int [] arry1 = {4,2,5,10,3,7};
+
+        arry1 = Utils.InsertionSort(arry1);
+
+        System.out.println("Insertion Sort");
+        Utils.printArray(Arrays.stream( arry1 ).boxed().toArray( Integer[]::new ));
+
+
+        int [] arry2 = {100,76,5,10,3,7};
+
+        arry2 = Utils.BubbleSort(arry2);
 
         System.out.println("Bubble Sort");
-        for(Integer i:l){
-            System.out.println(i);
-        }
+        Utils.printArray(Arrays.stream( arry2 ).boxed().toArray( Integer[]::new ));
+
+
+
+        int [] arry3 = {102,76,251,10,3,7};
+
+        arry3 = Utils.SelectionSort(arry3);
+
+        System.out.println("Selection Sort");
+        Utils.printArray(Arrays.stream( arry3 ).boxed().toArray( Integer[]::new ));
 
     }
 
