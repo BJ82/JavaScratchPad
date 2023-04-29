@@ -159,4 +159,68 @@ public class Utils {
         }
     }
 
+    public static int[] MergeSort(int [] arry){
+
+        int size = arry.length;
+        if(size < 2)
+            return arry;
+
+        int mid = size/2;
+        int [] left = new int [mid];
+        int [] right = new int [size - mid];
+
+        for(int i=0;i<mid;i++){
+            left[i] = arry[i];
+        }
+
+        for(int j=mid;j<size;j++){
+            right[j-mid] = arry[j];
+        }
+
+        left = MergeSort(left);
+        right = MergeSort(right);
+        arry = Merge(left,right,arry);
+        return arry;
+
+    }
+
+    public static int[] Merge(int [] left,int [] right,int [] Arry){
+
+        int leftArrySize = left.length;
+        int rightArrySize = right.length;
+
+        int i = 0;
+        int j = 0;
+        int k = 0;
+
+        while(i < leftArrySize && j < rightArrySize){
+
+            if(left[i] < right[j]){
+
+                Arry[k] = left[i];
+                i++;
+            }
+
+            else if(right[j] < left[i]){
+
+                Arry[k] = right[j];
+                j++;
+            }
+            k++;
+        }
+        while(i < leftArrySize){
+            Arry[k] = left[i];
+            i++;
+            k++;
+        }
+        while(j < rightArrySize){
+            Arry[k] = right[j];
+            j++;
+            k++;
+        }
+
+        return Arry;
+
+    }
+
 }

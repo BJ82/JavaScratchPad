@@ -91,6 +91,14 @@ public class Main {
         System.out.println("Selection Sort");
         Utils.printArray(Arrays.stream( arry3 ).boxed().toArray( Integer[]::new ));
 
+
+        int [] arry4 = {34,12,14,10,13,7};
+
+        arry4 = Utils.MergeSort(arry4);
+
+        System.out.println("Merge Sort");
+        Utils.printArray(Arrays.stream( arry4 ).boxed().toArray( Integer[]::new ));
+
     }
 
 }
