@@ -42,6 +42,7 @@ public class DoubleLinkList<T> implements List<T> {
         Node<T> newNode = createNode(data);
         if(getHead() == null){
             setHead(newNode);
+            newNode.setPrev(null);
             return;
         }
         Node<T> last = getLastNode();
@@ -81,11 +82,19 @@ public class DoubleLinkList<T> implements List<T> {
 
     /*Remove last entry in the list*/
     public void removeLast(){
+        Node<T> last;
 
-        Node<T> secondLast = getNode(size()-1);
-        secondLast.setNext(null);
+        if(size()==1){
+            last = getHead();
+            setHead(null);
+        }
+        else{
+            Node<T> secondLast = getNode(size()-1);
+            last = secondLast.getNext();
+            secondLast.setNext(null);
+        }
+        removeNode(last);
 
-        removeNode(getNode(size()));
     }
 
 
@@ -150,24 +159,14 @@ public class DoubleLinkList<T> implements List<T> {
         return new Node<>(data);
     }
 
-    private Node<T> getLastNode(){
+    @Override
+    public void revrsTrvsl(Node<T> n) {
 
-        if(getHead() == null)
-            return null;
+        System.out.println(n.getData());
 
-        Node<T> temp = getHead();
+        if(getHead() == n)
+            return;
 
-        while(temp.getNext() != null){
-            temp = temp.getNext();
-        }
-        return temp;
-    }
-    private Node<T> getNode(int index){
-        Node<T> temp = getHead();
-
-        for(int i=1;i<index;i++){
-            temp = temp.getNext();
-        }
-        return temp;
+        revrsTrvsl(n.getPrev());
     }
 }

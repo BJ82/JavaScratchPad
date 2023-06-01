@@ -1,6 +1,7 @@
 package org.LinkList;
 
 import org.Interfaces.List;
+import org.Stack.Stack;
 
 /*Single Linked List*/
 public class LinkList <T> implements List<T> {
@@ -9,6 +10,17 @@ public class LinkList <T> implements List<T> {
 
     public Node<T> getHead() {
         return head;
+    }
+
+    public void revrsTrvsl(Node<T> n) {
+
+        if(n.getNext() == null){
+            System.out.println(n.getData());
+            return;
+        }
+
+        revrsTrvsl(n.getNext());
+        System.out.println(n.getData());
     }
 
     private void setHead(Node<T> head) {
@@ -122,28 +134,5 @@ public class LinkList <T> implements List<T> {
     private Node<T> createNode(T data){
         return new Node<>(data);
     }
-
-    private Node<T> getLastNode(){
-
-        if(getHead() == null)
-            return null;
-
-        Node<T> temp = getHead();
-
-        while(temp.getNext() != null){
-            temp = temp.getNext();
-        }
-        return temp;
-    }
-    private Node<T> getNode(int index){
-        Node<T> temp = getHead();
-
-        for(int i=1;i<index;i++){
-            temp = temp.getNext();
-        }
-        return temp;
-    }
-
-
 
 }
