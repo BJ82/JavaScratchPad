@@ -3,6 +3,7 @@ package org.Main;
 import org.Interfaces.List;
 import org.Interfaces.Queue;
 import org.LinkList.DoubleLinkList;
+import org.LinkList.LinkList;
 import org.Stack.Stack;
 import org.Utils.Utils;
 
@@ -35,6 +36,13 @@ public class Main {
         System.out.println("After removing last entry");
         Utils.print(list);
         System.out.println("Size of List:"+list.size());
+
+        System.out.println("Forward Traversal Of Link List:");
+        list.fwrdTrvsl(list.getHead());
+
+        System.out.println("Reverse Traversal Of Link List:");
+        list.revrsTrvsl(list.getLastNode());
+
 
         System.out.println("Stack");
         Stack<Integer> stk = new Stack<>();
