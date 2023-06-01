@@ -159,14 +159,4 @@ public class DoubleLinkList<T> implements List<T> {
         return new Node<>(data);
     }
 
-    @Override
-    public void revrsTrvsl(Node<T> n) {
-
-        System.out.println(n.getData());
-
-        if(getHead() == n)
-            return;
-
-        revrsTrvsl(n.getPrev());
-    }
 }

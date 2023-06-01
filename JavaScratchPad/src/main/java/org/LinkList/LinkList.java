@@ -12,17 +12,6 @@ public class LinkList <T> implements List<T> {
         return head;
     }
 
-    public void revrsTrvsl(Node<T> n) {
-
-        if(n.getNext() == null){
-            System.out.println(n.getData());
-            return;
-        }
-
-        revrsTrvsl(n.getNext());
-        System.out.println(n.getData());
-    }
-
     private void setHead(Node<T> head) {
         this.head = head;
     }

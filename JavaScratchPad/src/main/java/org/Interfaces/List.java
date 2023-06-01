@@ -31,7 +31,16 @@ public interface List <T>{
         fwrdTrvsl(n.getNext());
     }
 
-    public void revrsTrvsl(Node<T> n);
+    public default void revrsTrvsl(Node<T> n) {
+
+        if(n == null){
+
+            return;
+        }
+
+        revrsTrvsl(n.getNext());
+        System.out.println(n.getData());
+    }
 
      public default Node<T> getLastNode(){
 

@@ -41,7 +41,7 @@ public class Main {
         list.fwrdTrvsl(list.getHead());
 
         System.out.println("Reverse Traversal Of Link List:");
-        list.revrsTrvsl(list.getLastNode());
+        list.revrsTrvsl(list.getHead());
 
 
         System.out.println("Stack");
