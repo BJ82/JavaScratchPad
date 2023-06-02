@@ -22,7 +22,7 @@ public class Main {
         }
 
         Utils.print(list);
-        ((DoubleLinkList<Integer>) list).reverse();
+        ((DoubleLinkList<Integer>) list).reverse(null);
         System.out.println("After Reversing");
         Utils.print(list);
         System.out.println("Inserting Entry at index 2");
