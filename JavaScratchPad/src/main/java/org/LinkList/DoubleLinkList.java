@@ -121,19 +121,20 @@ public class DoubleLinkList<T> implements List<T> {
 
 
 
-    public void reverse(){
-        Node<T> newHead = null;
-        Node<T> temp;
-        while(getHead()!=null){
-            temp = getHead();
-            setHead(getHead().getNext());
-            temp.setNext(newHead);
-            if(newHead!=null)
-                newHead.setPrev(temp);
-            newHead = temp;
+    public void reverse(Node<T> newHead){
 
+        if(getHead() == null){
+            setHead(newHead);
+            return;
         }
-        setHead(newHead);
+
+        Node<T> temp = getHead();
+        setHead(getHead().getNext());
+        temp.setNext(newHead);
+        newHead = temp;
+
+        reverse(newHead);
+
     }
 
     public int size(){
