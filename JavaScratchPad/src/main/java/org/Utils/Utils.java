@@ -94,7 +94,10 @@ public class Utils {
         String opening = "{([";
         String closing = "})]";
 
-        return opening.indexOf(Character.toString(c1)) != closing.indexOf(Character.toString(c2));
+        String c1Str = Character.toString(c1);
+        String c2Str = Character.toString(c2);
+
+        return opening.indexOf(c1Str) != closing.indexOf(c2Str);
     }
 
     public static int[] BubbleSort(int[] list){
