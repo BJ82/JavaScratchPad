@@ -5,9 +5,6 @@ import org.LinkList.Node;
 import org.Interfaces.List;
 import org.Stack.Stack;
 
-import java.util.ArrayList;
-import java.util.Collections;
-
 public class Utils {
 
     public static <T> void print(List<T> list){
@@ -94,12 +91,15 @@ public class Utils {
         String opening = "{([";
         String closing = "})]";
 
-        String c1Str = Character.toString(c1);
-        String c2Str = Character.toString(c2);
+        String c1AsStr = getString(c1);
+        String c2AsStr = getString(c2);
 
-        return opening.indexOf(c1Str) != closing.indexOf(c2Str);
+        return opening.indexOf(c1AsStr) != closing.indexOf(c2AsStr);
     }
 
+    private static String getString(char c){
+        return Character.toString(c);
+    }
     public static int[] BubbleSort(int[] list){
 
         int n = list.length;

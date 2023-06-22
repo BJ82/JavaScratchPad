@@ -3,11 +3,9 @@ package org.Main;
 import org.Interfaces.List;
 import org.Interfaces.Queue;
 import org.LinkList.DoubleLinkList;
-import org.LinkList.LinkList;
 import org.Stack.Stack;
 import org.Utils.Utils;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Main {
@@ -59,7 +57,7 @@ public class Main {
         stk.pop();
         System.out.println("Stack Entries After Calling POP:");
         stk.print();
-        System.out.println("Is Balanced:"+Utils.isBalancedParenthesis("{[()()}]"));
+        System.out.println("Is Balanced:"+Utils.isBalancedParenthesis("{[()()]}"));
 
 
         Queue<Integer> q = new org.Queue.Queue<>();
