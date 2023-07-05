@@ -88,13 +88,22 @@ public class Utils {
     }
 
     private static boolean isNoMatch(char c1,char c2){
-        String opening = "{([";
-        String closing = "})]";
 
         String c1AsStr = getString(c1);
         String c2AsStr = getString(c2);
 
-        return opening.indexOf(c1AsStr) != closing.indexOf(c2AsStr);
+        String opening = "{([";
+        String closing = "})]";
+
+        int indexOfC1 = opening.indexOf(c1AsStr);
+        int indexOfC2 = closing.indexOf(c2AsStr);
+
+        boolean isNoMatch = false;
+        if(indexOfC1 != indexOfC2)
+            isNoMatch = true;
+
+        return isNoMatch;
+        
     }
 
     private static String getString(char c){
