@@ -93,11 +93,11 @@ public class Utils {
         String c2AsStr = getString(c2);
 
         String opening = "{([";
-        String closing = "})]";
-
         int indexOfC1 = opening.indexOf(c1AsStr);
-        int indexOfC2 = closing.indexOf(c2AsStr);
 
+        String closing = "})]";
+        int indexOfC2 = closing.indexOf(c2AsStr);
+        
         boolean isNoMatch = false;
         if(indexOfC1 != indexOfC2)
             isNoMatch = true;
