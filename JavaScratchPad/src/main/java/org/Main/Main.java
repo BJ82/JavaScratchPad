@@ -10,8 +10,8 @@ import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Is Palindrome:"+ Utils.isPalindrome("sts"));
-
+        System.out.println("Is sts Palindrome:"+ Utils.isPalindrome("sts"));
+        System.out.println("Is 15151 Palindrome:"+ Utils.isPalindrome(15151));
         List<Integer> list = new DoubleLinkList<>();
         Utils.print(list);
 

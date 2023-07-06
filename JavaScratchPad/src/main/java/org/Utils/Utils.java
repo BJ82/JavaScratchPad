@@ -22,8 +22,8 @@ public class Utils {
     }
 
     public static boolean isPalindrome(int num){
-        String strNum = intToString(num);
-        return checkIfPalindrome(strNum);
+        String numAsStr = intToString(num);
+        return checkIfPalindrome(numAsStr);
 
     }
     public static boolean isPalindrome(String str){
@@ -97,7 +97,7 @@ public class Utils {
 
         String closing = "})]";
         int indexOfC2 = closing.indexOf(c2AsStr);
-        
+
         boolean isNoMatch = false;
         if(indexOfC1 != indexOfC2)
             isNoMatch = true;
