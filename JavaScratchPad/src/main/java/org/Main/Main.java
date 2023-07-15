@@ -13,26 +13,26 @@ public class Main {
         System.out.println("Is sts Palindrome:"+ Utils.isPalindrome("sts"));
         System.out.println("Is 15151 Palindrome:"+ Utils.isPalindrome(15151));
         List<Integer> list = new DoubleLinkList<>();
-        Utils.print(list);
+        Utils.printToConsole(list);
 
         for(int i=6;i>=1;i--){
             list.insertLast(i);
         }
 
-        Utils.print(list);
+        Utils.printToConsole(list);
         ((DoubleLinkList<Integer>) list).reverse(null);
         System.out.println("After Reversing");
-        Utils.print(list);
+        Utils.printToConsole(list);
         System.out.println("Inserting Entry at index 2");
         list.insert(1000,2);
-        Utils.print(list);
+        Utils.printToConsole(list);
         list.remove(2);
         System.out.println("After removing Entry at index 2");
-        Utils.print(list);
+        Utils.printToConsole(list);
         System.out.println("Size of List:"+list.size());
         list.removeLast();
         System.out.println("After removing last entry");
-        Utils.print(list);
+        Utils.printToConsole(list);
         System.out.println("Size of List:"+list.size());
 
         System.out.println("Forward Traversal Of Link List:");
@@ -78,7 +78,7 @@ public class Main {
         arry1 = Utils.InsertionSort(arry1);
 
         System.out.println("Insertion Sort");
-        Utils.printArray(Arrays.stream( arry1 ).boxed().toArray( Integer[]::new ));
+        Utils.printToConsole(Arrays.stream( arry1 ).boxed().toArray( Integer[]::new ));
 
 
         int [] arry2 = {100,76,5,10,3,7};
@@ -86,7 +86,7 @@ public class Main {
         arry2 = Utils.BubbleSort(arry2);
 
         System.out.println("Bubble Sort");
-        Utils.printArray(Arrays.stream( arry2 ).boxed().toArray( Integer[]::new ));
+        Utils.printToConsole(Arrays.stream( arry2 ).boxed().toArray( Integer[]::new ));
 
 
 
@@ -95,7 +95,7 @@ public class Main {
         arry3 = Utils.SelectionSort(arry3);
 
         System.out.println("Selection Sort");
-        Utils.printArray(Arrays.stream( arry3 ).boxed().toArray( Integer[]::new ));
+        Utils.printToConsole(Arrays.stream( arry3 ).boxed().toArray( Integer[]::new ));
 
 
         int [] arry4 = {34,12,14,10,13,7};
@@ -103,7 +103,7 @@ public class Main {
         arry4 = Utils.MergeSort(arry4);
 
         System.out.println("Merge Sort");
-        Utils.printArray(Arrays.stream( arry4 ).boxed().toArray( Integer[]::new ));
+        Utils.printToConsole(Arrays.stream( arry4 ).boxed().toArray( Integer[]::new ));
 
     }
 

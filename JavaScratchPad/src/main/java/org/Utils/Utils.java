@@ -7,7 +7,10 @@ import org.Stack.Stack;
 
 public class Utils {
 
-    public static <T> void print(List<T> list){
+    public static <T> void printToConsole(List<T> list){
+
+        if(null == list)
+            return;
 
         if(list.getHead() == null){
             System.out.println("List is Empty");
@@ -21,6 +24,16 @@ public class Utils {
         }
     }
 
+    public static <T> void printToConsole(T [] arry){
+
+        if(null == arry)
+            return;
+
+        for(T i:arry){
+            System.out.println(i);
+        }
+    }
+
     public static boolean isPalindrome(int num){
         String numAsStr = intToString(num);
         return checkIfPalindrome(numAsStr);
@@ -31,7 +44,7 @@ public class Utils {
     }
     private static boolean checkIfPalindrome(String s){
         boolean isPalindrome = false;  //O(1)   1
-        int last=s.length()-1;         //O(1)   1
+        int last=getLastIndex(s);         //O(1)   1
         for(int i=0;i<s.length();i++){ //O(1) 1  //O(1) n+1  //O(1) n+1
             if(s.charAt(i) == s.charAt(last)){ //O(1) n  //O(1) n  //O(1) n
                 if(i<=last) //O(1) n/2
@@ -45,6 +58,11 @@ public class Utils {
         }
         return isPalindrome;        //O(1)  1
     }
+
+    private static int getLastIndex(String s){
+        return s.length()-1;
+    }
+
     private static String intToString(int i){
         return Integer.valueOf(i).toString();
     }
@@ -53,7 +71,7 @@ public class Utils {
 
         Stack<Character> stk = new Stack<>();
 
-        for(int i=0;i<s.length();i++)
+        for(int i=0; i<=getLastIndex(s); i++)
         {
             if(isOpening(s.charAt(i)))
             {
@@ -163,12 +181,6 @@ public class Utils {
             swap(list,i,imin);
         }
         return list;
-    }
-
-    public static <T> void printArray(T [] arry){
-        for(T i:arry){
-            System.out.println(i);
-        }
     }
 
     public static int[] MergeSort(int [] arry){
