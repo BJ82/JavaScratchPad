@@ -36,10 +36,10 @@ public class Utils {
 
     public static boolean isPalindrome(int num){
 
-        if(isNull(num))
+        if(isNull(num) || intToString(num).isEmpty())
             return false;
+
         String numAsStr = intToString(num);
-        //return checkIfPalindrome(numAsStr);
         return checkIfPalindrome(numAsStr,0,getLastIndex(numAsStr));
 
     }
@@ -48,7 +48,6 @@ public class Utils {
         if(isNull(str) || str.isEmpty())
             return false;
 
-        //return checkIfPalindrome(str);
         return checkIfPalindrome(str,0,getLastIndex(str));
     }
     private static boolean checkIfPalindrome(String s){
