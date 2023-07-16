@@ -43,19 +43,16 @@ public class Utils {
         return checkIfPalindrome(str);
     }
     private static boolean checkIfPalindrome(String s){
-        boolean isPalindrome = false;
-
+        boolean isPalindrome = true;
+        int indx = 0;
         int lastIndx=getLastIndex(s);
-        for(int indx=0;indx<=getLastIndex(s);indx++){
-            if(isEqual(s,indx,lastIndx)){
-                if(indx<=lastIndx)
-                    isPalindrome = true;
-                lastIndx--;
-            }
-            else{
+        while(indx<=lastIndx){
+            if(!isEqual(s,indx,lastIndx)){
                 isPalindrome = false;
                 break;
             }
+            indx++;
+            lastIndx--;
         }
         return isPalindrome;
     }
