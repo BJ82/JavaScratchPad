@@ -43,20 +43,28 @@ public class Utils {
         return checkIfPalindrome(str);
     }
     private static boolean checkIfPalindrome(String s){
-        boolean isPalindrome = false;  //O(1)   1
-        int last=getLastIndex(s);         //O(1)   1
-        for(int i=0;i<s.length();i++){ //O(1) 1  //O(1) n+1  //O(1) n+1
-            if(s.charAt(i) == s.charAt(last)){ //O(1) n  //O(1) n  //O(1) n
-                if(i<=last) //O(1) n/2
-                    isPalindrome = true; //O(1) 1
-                last--;  //O(1) n/2
+        boolean isPalindrome = false;
+
+        int lastIndx=getLastIndex(s);
+        for(int indx=0;indx<=getLastIndex(s);indx++){
+            if(isEqual(s,indx,lastIndx)){
+                if(indx<=lastIndx)
+                    isPalindrome = true;
+                lastIndx--;
             }
             else{
-                isPalindrome = false;   //O(1)  1
-                break;                  //O(1)  1
+                isPalindrome = false;
+                break;
             }
         }
-        return isPalindrome;        //O(1)  1
+        return isPalindrome;
+    }
+
+    private static boolean isEqual(String s,int indx1,int indx2){
+        if(s.charAt(indx1) == s.charAt(indx2)){
+            return true;
+        }
+        return false;
     }
 
     private static int getLastIndex(String s){
