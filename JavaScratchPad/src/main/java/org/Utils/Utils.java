@@ -35,12 +35,19 @@ public class Utils {
     }
 
     public static boolean isPalindrome(int num){
+
+        if(isNull(num))
+            return false;
         String numAsStr = intToString(num);
         //return checkIfPalindrome(numAsStr);
         return checkIfPalindrome(numAsStr,0,getLastIndex(numAsStr));
 
     }
     public static boolean isPalindrome(String str){
+
+        if(isNull(str) || str.isEmpty())
+            return false;
+
         //return checkIfPalindrome(str);
         return checkIfPalindrome(str,0,getLastIndex(str));
     }
@@ -60,7 +67,6 @@ public class Utils {
     }
 
     private static boolean checkIfPalindrome(String s,int indx,int lstIndx){
-
         if(indx>lstIndx)
             return true;
 
@@ -72,6 +78,10 @@ public class Utils {
 
     private static boolean isEqual(String s,int indx1,int indx2){
         return s.charAt(indx1) == s.charAt(indx2);
+    }
+
+    private static boolean isNull(Object o){
+        return null == o;
     }
 
     private static int getLastIndex(String s){
