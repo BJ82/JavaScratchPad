@@ -218,14 +218,15 @@ public class Utils {
         System.arraycopy(arry, 0, left, 0, mid);
         System.arraycopy(arry,mid,right,0,size - mid);
 
-        left = MergeSort(left);
-        right = MergeSort(right);
-        arry = Merge(left,right,arry);
+        MergeSort(left);
+        MergeSort(right);
+
+        Merge(left,right,arry);
         return arry;
 
     }
 
-    public static int[] Merge(int [] left,int [] right,int [] Arry){
+    public static void Merge(int [] left,int [] right,int [] Arry){
 
         int leftArrySize = left.length;
         int rightArrySize = right.length;
@@ -259,9 +260,6 @@ public class Utils {
             j++;
             k++;
         }
-
-        return Arry;
-
     }
 
 }
