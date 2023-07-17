@@ -36,7 +36,7 @@ public class Utils {
 
     public static boolean isPalindrome(int num){
 
-        if(isNull(num) || intToString(num).isEmpty())
+        if(intToString(num).isEmpty())
             return false;
 
         String numAsStr = intToString(num);
@@ -50,7 +50,7 @@ public class Utils {
 
         return checkIfPalindrome(str,0,getLastIndex(str));
     }
-    private static boolean checkIfPalindrome(String s){
+    /*private static boolean checkIfPalindrome(String s){
         boolean isPalindrome = true;
         int indx = 0;
         int lastIndx=getLastIndex(s);
@@ -63,7 +63,7 @@ public class Utils {
             lastIndx--;
         }
         return isPalindrome;
-    }
+    }*/
 
     private static boolean checkIfPalindrome(String s,int indx,int lstIndx){
         if(indx>lstIndx)
@@ -158,22 +158,20 @@ public class Utils {
         for(int i=0;i<n;i++){
             for(int j=0;j<=(n-i-2);j++){
                 if(list[j] > list[j+1]){
-                    list = swap(list,j,j+1);
+                    swap(list, j, j + 1);
                     flag = true;
                 }
             }
-            if(flag == false)
+            if(!flag)
                 break;
         }
         return list;
     }
 
-    private static  int[] swap(int[] list,int i,int j){
+    private static void swap(int[] list,int i,int j){
         int temp = list[i];
         list[i] = list[j];
         list[j] = temp;
-
-        return list;
     }
 
     public static int[] InsertionSort(int[] list){
@@ -217,13 +215,8 @@ public class Utils {
         int [] left = new int [mid];
         int [] right = new int [size - mid];
 
-        for(int i=0;i<mid;i++){
-            left[i] = arry[i];
-        }
-
-        for(int j=mid;j<size;j++){
-            right[j-mid] = arry[j];
-        }
+        System.arraycopy(arry, 0, left, 0, mid);
+        System.arraycopy(arry,mid,right,0,size - mid);
 
         left = MergeSort(left);
         right = MergeSort(right);
