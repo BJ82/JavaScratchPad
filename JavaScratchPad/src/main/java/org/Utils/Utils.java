@@ -50,20 +50,7 @@ public class Utils {
 
         return checkIfPalindrome(str,0,getLastIndex(str));
     }
-    /*private static boolean checkIfPalindrome(String s){
-        boolean isPalindrome = true;
-        int indx = 0;
-        int lastIndx=getLastIndex(s);
-        while(indx<=lastIndx){
-            if(!isEqual(s,indx,lastIndx)){
-                isPalindrome = false;
-                break;
-            }
-            indx++;
-            lastIndx--;
-        }
-        return isPalindrome;
-    }*/
+
 
     private static boolean checkIfPalindrome(String s,int indx,int lstIndx){
         if(indx>lstIndx)
