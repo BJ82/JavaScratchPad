@@ -205,18 +205,18 @@ public class Utils {
         return list;
     }
 
-    public static int[] MergeSort(int [] arry){
+    public static Integer[] MergeSort(Integer [] arry){
 
-        int size = arry.length;
+        int size = getSize(arry);
         if(size < 2)
             return arry;
 
         int mid = size/2;
-        int [] left = new int [mid];
-        int [] right = new int [size - mid];
+        Integer [] left = new Integer [mid];
+        Integer [] right = new Integer [size - mid];
 
-        System.arraycopy(arry, 0, left, 0, mid);
-        System.arraycopy(arry,mid,right,0,size - mid);
+        copyArray(arry, 0, left, 0, mid);
+        copyArray(arry,mid,right,0,size - mid);
 
         MergeSort(left);
         MergeSort(right);
@@ -226,10 +226,10 @@ public class Utils {
 
     }
 
-    public static void Merge(int [] left,int [] right,int [] Arry){
+    public static void Merge(Integer [] left,Integer [] right,Integer [] Arry){
 
-        int leftArrySize = left.length;
-        int rightArrySize = right.length;
+        int leftArrySize = getSize(left);
+        int rightArrySize = getSize(right);
 
         int leftIdx = 0;
         int rightIdx = 0;
@@ -252,17 +252,20 @@ public class Utils {
         }
 
 
-        while(leftIdx < leftArrySize){
-            Arry[arryIdx] = left[leftIdx];
-            leftIdx++;
-            arryIdx++;
-        }
+        if(leftIdx < leftArrySize)
+            copyArray(left, leftIdx, Arry, arryIdx, leftArrySize-leftIdx);
 
-        while(rightIdx < rightArrySize){
-            Arry[arryIdx] = right[rightIdx];
-            rightIdx++;
-            arryIdx++;
-        }
+
+        if(rightIdx < rightArrySize)
+            copyArray(right,rightIdx,Arry,arryIdx,rightArrySize-rightIdx);
+
     }
 
+    public static <T> int getSize(T[] arry){
+        return arry.length;
+    }
+
+    public static void copyArray(Integer[] from,int fromIdx,Integer[] to,int toIdx,int length){
+        System.arraycopy(from, fromIdx, to, toIdx, length);
+    }
 }

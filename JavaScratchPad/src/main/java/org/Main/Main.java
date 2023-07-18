@@ -98,12 +98,12 @@ public class Main {
         Utils.printToConsole(Arrays.stream( arry3 ).boxed().toArray( Integer[]::new ));
 
 
-        int [] arry4 = {34,12,14,10,13,7};
+        Integer [] arry4 = {122,121,65,34,28,16,14,10,1};
 
         arry4 = Utils.MergeSort(arry4);
 
         System.out.println("Merge Sort");
-        Utils.printToConsole(Arrays.stream( arry4 ).boxed().toArray( Integer[]::new ));
+        Utils.printToConsole(arry4);
 
     }
 
