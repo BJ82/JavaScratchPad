@@ -231,34 +231,37 @@ public class Utils {
         int leftArrySize = left.length;
         int rightArrySize = right.length;
 
-        int i = 0;
-        int j = 0;
-        int k = 0;
+        int leftIdx = 0;
+        int rightIdx = 0;
+        int arryIdx = 0;
 
-        while(i < leftArrySize && j < rightArrySize){
+        while(leftIdx < leftArrySize && rightIdx < rightArrySize){
 
-            if(left[i] < right[j]){
+            if(left[leftIdx] < right[rightIdx]){
 
-                Arry[k] = left[i];
-                i++;
+                Arry[arryIdx] = left[leftIdx];
+                leftIdx++;
             }
 
-            else if(right[j] < left[i]){
+            else if(right[rightIdx] < left[leftIdx]){
 
-                Arry[k] = right[j];
-                j++;
+                Arry[arryIdx] = right[rightIdx];
+                rightIdx++;
             }
-            k++;
+            arryIdx++;
         }
-        while(i < leftArrySize){
-            Arry[k] = left[i];
-            i++;
-            k++;
+
+
+        while(leftIdx < leftArrySize){
+            Arry[arryIdx] = left[leftIdx];
+            leftIdx++;
+            arryIdx++;
         }
-        while(j < rightArrySize){
-            Arry[k] = right[j];
-            j++;
-            k++;
+
+        while(rightIdx < rightArrySize){
+            Arry[arryIdx] = right[rightIdx];
+            rightIdx++;
+            arryIdx++;
         }
     }
 
