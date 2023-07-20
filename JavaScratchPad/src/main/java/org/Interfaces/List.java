@@ -16,7 +16,7 @@ public interface List <T>{
 
     void removeFirst();
 
-    public void reverse();
+    void reverse();
 
     int size();
 
