@@ -20,7 +20,7 @@ public class Main {
         }
 
         Utils.printToConsole(list);
-        ((DoubleLinkList<Integer>) list).reverse(null);
+        list.reverse();
         System.out.println("After Reversing");
         Utils.printToConsole(list);
         System.out.println("Inserting Entry at index 2");
@@ -75,7 +75,7 @@ public class Main {
 
         int [] arry1 = {4,2,5,10,3,7};
 
-        arry1 = Utils.InsertionSort(arry1);
+        Utils.InsertionSort(arry1);
 
         System.out.println("Insertion Sort");
         Utils.printToConsole(Arrays.stream( arry1 ).boxed().toArray( Integer[]::new ));
@@ -83,7 +83,7 @@ public class Main {
 
         int [] arry2 = {100,76,5,10,3,7};
 
-        arry2 = Utils.BubbleSort(arry2);
+        Utils.BubbleSort(arry2);
 
         System.out.println("Bubble Sort");
         Utils.printToConsole(Arrays.stream( arry2 ).boxed().toArray( Integer[]::new ));
@@ -92,7 +92,7 @@ public class Main {
 
         int [] arry3 = {102,76,251,10,3,7};
 
-        arry3 = Utils.SelectionSort(arry3);
+        Utils.SelectionSort(arry3);
 
         System.out.println("Selection Sort");
         Utils.printToConsole(Arrays.stream( arry3 ).boxed().toArray( Integer[]::new ));
@@ -100,7 +100,7 @@ public class Main {
 
         Integer [] arry4 = {122,121,65,34,28,16,14,10,1};
 
-        arry4 = Utils.MergeSort(arry4);
+        Utils.MergeSort(arry4);
 
         System.out.println("Merge Sort");
         Utils.printToConsole(arry4);

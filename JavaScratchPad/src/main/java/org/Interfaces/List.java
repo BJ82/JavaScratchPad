@@ -16,6 +16,8 @@ public interface List <T>{
 
     void removeFirst();
 
+    public void reverse();
+
     int size();
 
     boolean isEmpty();
@@ -64,7 +66,5 @@ public interface List <T>{
         }
         return temp;
     }
-
-
 
 }
