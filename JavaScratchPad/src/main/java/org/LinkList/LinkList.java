@@ -36,10 +36,12 @@ public class LinkList <T> implements List<T> {
             setHead(newNode);
             return;
         }
-        Node<T> prev = getNode(index-1);
-        Node<T> current = getNode(index);
-        newNode.setNext(current);
-        prev.setNext(newNode);
+
+        Node<T> currentNode = getNode(index);
+        newNode.setNext(currentNode);
+
+        Node<T> prevNode = getNode(index-1);
+        prevNode.setNext(newNode);
     }
 
     /*Insert at beginning*/
