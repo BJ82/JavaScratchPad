@@ -111,15 +111,17 @@ public class LinkList <T> implements List<T> {
     /*Get the size of list*/
     public int size(){
 
-        if(getHead() == null)
-            return -1;
+        return getSize(getHead());
+    }
 
-        int size = 0;
-        Node<T> temp = getHead();
-        while(temp!= null){
-            size++;
-            temp = temp.getNext();
-        }
+    private int getSize(Node<T> from){
+
+        if(null == from)
+            return 0;
+
+        int size=1;
+        size = size + getSize(from.getNext());
+
         return size;
     }
 
