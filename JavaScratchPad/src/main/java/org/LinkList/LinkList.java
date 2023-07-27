@@ -62,13 +62,16 @@ public class LinkList <T> implements List<T> {
 
         while (getHead() != null) {
             Node<T> temp = getHead();
-            setHead(getHead().getNext());
+            setHead(next(getHead()));
             temp.setNext(newHead);
             newHead = temp;
         }
         setHead(newHead);
     }
 
+    private Node<T> next(Node<T> n){
+        return n.getNext();
+    }
 
     /*Remove from specific index*/
     public void remove(int index){
