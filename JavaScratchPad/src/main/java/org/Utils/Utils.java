@@ -9,10 +9,10 @@ public class Utils {
 
     public static <T> void printToConsole(List<T> list){
 
-        if(null == list)
+        if(isNull(list))
             return;
 
-        if(list.getHead() == null){
+        if(isNull(list.getHead())){
             System.out.println("List is Empty");
             return;
         }
@@ -26,7 +26,7 @@ public class Utils {
 
     public static <T> void printToConsole(T [] arry){
 
-        if(null == arry)
+        if(isNull(arry))
             return;
 
         for(T i:arry){

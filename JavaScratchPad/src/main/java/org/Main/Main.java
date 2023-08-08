@@ -80,7 +80,6 @@ public class Main {
         System.out.println("Insertion Sort");
         Utils.printToConsole(Arrays.stream( arry1 ).boxed().toArray( Integer[]::new ));
 
-
         int [] arry2 = {100,76,5,10,3,7};
 
         Utils.BubbleSort(arry2);
