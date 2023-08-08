@@ -43,6 +43,11 @@ public class Utils {
         return checkIfPalindrome(numAsStr,0,getLastIndex(numAsStr));
 
     }
+
+    private static String intToString(int i){
+        return Integer.valueOf(i).toString();
+    }
+
     public static boolean isPalindrome(String str){
 
         if(isNull(str) || str.isEmpty())
@@ -72,10 +77,6 @@ public class Utils {
 
     private static int getLastIndex(String s){
         return s.length()-1;
-    }
-
-    private static String intToString(int i){
-        return Integer.valueOf(i).toString();
     }
 
     public static boolean isBalancedParenthesis(String s){
@@ -116,6 +117,10 @@ public class Utils {
         return closing.contains(Character.toString(c));
     }
 
+    private static String getString(char c){
+        return Character.toString(c);
+    }
+
     private static boolean isNoMatch(char c1,char c2){
 
         String c1AsStr = getString(c1);
@@ -135,9 +140,7 @@ public class Utils {
         
     }
 
-    private static String getString(char c){
-        return Character.toString(c);
-    }
+
     public static int[] BubbleSort(int[] list){
 
         int n = list.length;
@@ -190,6 +193,10 @@ public class Utils {
             swap(list,i,imin);
         }
         return list;
+    }
+
+    public static <T> int getSize(T[] arry){
+        return arry.length;
     }
 
     public static Integer[] MergeSort(Integer [] arry){
@@ -248,9 +255,7 @@ public class Utils {
 
     }
 
-    public static <T> int getSize(T[] arry){
-        return arry.length;
-    }
+
 
     public static void copyArray(Integer[] from,int fromIdx,Integer[] to,int toIdx,int length){
         System.arraycopy(from, fromIdx, to, toIdx, length);
