@@ -2,6 +2,7 @@ package org.LinkList;
 
 import org.Interfaces.List;
 import org.Stack.Stack;
+import org.Utils.Utils;
 
 /*Single Linked List*/
 public class LinkList <T> implements List<T> {
@@ -113,7 +114,7 @@ public class LinkList <T> implements List<T> {
 
     private int getSize(Node<T> from){
 
-        if(null == from)
+        if(Utils.isNull(from))
             return 0;
 
         int size=1;

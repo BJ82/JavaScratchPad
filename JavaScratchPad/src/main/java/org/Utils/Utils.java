@@ -71,7 +71,7 @@ public class Utils {
         return s.charAt(indx1) == s.charAt(indx2);
     }
 
-    private static boolean isNull(Object o){
+    public static boolean isNull(Object o){
         return null == o;
     }
 
