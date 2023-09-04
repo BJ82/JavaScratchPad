@@ -110,7 +110,10 @@ public class Utils {
         String orgnlStrAsArry[] = orgnlStr.split(subStr);
         orgnlStrAsArry = Utils.trim(orgnlStrAsArry);
         String modfdStr = String.join(" ",orgnlStrAsArry);
-        int Occurence = (orgnlStr.length()-modfdStr.length())/subStr.length();
+        int lenOrgnlStr = orgnlStr.length();
+        int lenModfdStr = modfdStr.length();
+        int lenSubStr = subStr.length();
+        int Occurence = (lenOrgnlStr-lenModfdStr)/lenSubStr;
         return Occurence;
     }
 
