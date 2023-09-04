@@ -5,6 +5,8 @@ import org.LinkList.Node;
 import org.Interfaces.List;
 import org.Stack.Stack;
 
+import java.util.Arrays;
+
 public class Utils {
 
     public static <T> void printToConsole(List<T> list){
@@ -104,6 +106,20 @@ public class Utils {
         return stk.isEmpty();
     }
 
+    public static int countOccurence(String orgnlStr,String subStr){
+        String strAsArry[] = orgnlStr.split(subStr);
+        strAsArry = Utils.trim(strAsArry);
+        String modfdStr = String.join(" ",strAsArry);
+        int Occurence = (orgnlStr.length()-modfdStr.length())/subStr.length();
+        return Occurence;
+    }
+
+    private static String[] trim(String [] strArry){
+        for(int i=0;i<strArry.length;i++){
+            strArry[i] = strArry[i].trim();
+        }
+        return strArry;
+    }
     private static boolean isOpening(char c){
 
         String opening = "{([";

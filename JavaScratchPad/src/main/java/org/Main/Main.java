@@ -11,7 +11,7 @@ import java.util.Arrays;
 public class Main {
     public static void main(String[] args) {
         System.out.println("Is sts Palindrome:"+ Utils.isPalindrome("sts"));
-        System.out.println("Is 15151 Palindrome:"  + Utils.isPalindrome(15151));
+        System.out.println("Is 15151 Palindrome:" + Utils.isPalindrome(15151));
         List<Integer> list = new DoubleLinkList<>();
         Utils.printToConsole(list);
 
@@ -103,6 +103,10 @@ public class Main {
 
         System.out.println("Merge Sort");
         Utils.printToConsole(arry4);
+
+        String s = "say hello in this string multiple times to count no of hello";
+
+        System.out.println("No of occurences: "+Utils.countOccurence(s,"say"));
 
     }
 
