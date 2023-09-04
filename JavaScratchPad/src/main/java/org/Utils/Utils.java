@@ -107,9 +107,9 @@ public class Utils {
     }
 
     public static int countOccurence(String orgnlStr,String subStr){
-        String strAsArry[] = orgnlStr.split(subStr);
-        strAsArry = Utils.trim(strAsArry);
-        String modfdStr = String.join(" ",strAsArry);
+        String orgnlStrAsArry[] = orgnlStr.split(subStr);
+        orgnlStrAsArry = Utils.trim(orgnlStrAsArry);
+        String modfdStr = String.join(" ",orgnlStrAsArry);
         int Occurence = (orgnlStr.length()-modfdStr.length())/subStr.length();
         return Occurence;
     }
