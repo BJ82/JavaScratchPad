@@ -1,11 +1,8 @@
 package org.Utils;
 
-import org.LinkList.Node;
-
 import org.Interfaces.List;
+import org.LinkList.Node;
 import org.Stack.Stack;
-
-import java.util.Arrays;
 
 public class Utils {
 
@@ -107,22 +104,20 @@ public class Utils {
     }
 
     public static int countOccurence(String orgnlStr,String subStr){
-        String orgnlStrAsArry[] = orgnlStr.split(subStr);
-        orgnlStrAsArry = trim(orgnlStrAsArry);
+        String[] orgnlStrAsArry = orgnlStr.split(subStr);
+        trim(orgnlStrAsArry);
 
         String modfdStr = getString(orgnlStrAsArry);
         int lenModfdStr = modfdStr.length();
         int lenOrgnlStr = orgnlStr.length();
         int lenSubStr = subStr.length();
-        int Occurence = (lenOrgnlStr-lenModfdStr)/lenSubStr;
-        return Occurence;
+        return (lenOrgnlStr-lenModfdStr)/lenSubStr;
     }
 
-    private static String[] trim(String [] strArry){
+    private static void trim(String [] strArry){
         for(int i=0;i<strArry.length;i++){
             strArry[i] = strArry[i].trim();
         }
-        return strArry;
     }
     private static String getString(String [] strArry){
         return String.join(" ",strArry);
@@ -164,7 +159,7 @@ public class Utils {
     }
 
 
-    public static int[] BubbleSort(int[] list){
+    public static void BubbleSort(int[] list){
 
         int n = list.length;
         boolean flag = false;
@@ -178,7 +173,6 @@ public class Utils {
             if(!flag)
                 break;
         }
-        return list;
     }
 
     private static void swap(int[] list,int i,int j){
@@ -187,7 +181,7 @@ public class Utils {
         list[j] = temp;
     }
 
-    public static int[] InsertionSort(int[] list){
+    public static void InsertionSort(int[] list){
 
         int value;
         int hole;
@@ -201,10 +195,9 @@ public class Utils {
             }
             list[hole] = value;
         }
-        return list;
     }
 
-    public static int[] SelectionSort(int[] list){
+    public static void SelectionSort(int[] list){
         int n = list.length;
         int imin;
         for(int i=0;i<n-2;i++){
@@ -215,18 +208,17 @@ public class Utils {
             }
             swap(list,i,imin);
         }
-        return list;
     }
 
     public static <T> int getSize(T[] arry){
         return arry.length;
     }
 
-    public static Integer[] MergeSort(Integer [] arry){
+    public static void MergeSort(Integer [] arry){
 
         int size = getSize(arry);
         if(size < 2)
-            return arry;
+            return;
 
         int mid = size/2;
         Integer [] left = new Integer [mid];
@@ -239,7 +231,6 @@ public class Utils {
         MergeSort(right);
 
         Merge(left,right,arry);
-        return arry;
 
     }
 
