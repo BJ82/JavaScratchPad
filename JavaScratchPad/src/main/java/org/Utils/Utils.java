@@ -108,10 +108,11 @@ public class Utils {
 
     public static int countOccurence(String orgnlStr,String subStr){
         String orgnlStrAsArry[] = orgnlStr.split(subStr);
-        orgnlStrAsArry = Utils.trim(orgnlStrAsArry);
-        String modfdStr = String.join(" ",orgnlStrAsArry);
-        int lenOrgnlStr = orgnlStr.length();
+        orgnlStrAsArry = trim(orgnlStrAsArry);
+
+        String modfdStr = getString(orgnlStrAsArry);
         int lenModfdStr = modfdStr.length();
+        int lenOrgnlStr = orgnlStr.length();
         int lenSubStr = subStr.length();
         int Occurence = (lenOrgnlStr-lenModfdStr)/lenSubStr;
         return Occurence;
@@ -122,6 +123,9 @@ public class Utils {
             strArry[i] = strArry[i].trim();
         }
         return strArry;
+    }
+    private static String getString(String [] strArry){
+        return String.join(" ",strArry);
     }
     private static boolean isOpening(char c){
 

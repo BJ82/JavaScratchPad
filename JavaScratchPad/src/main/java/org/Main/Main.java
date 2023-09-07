@@ -106,7 +106,7 @@ public class Main {
 
         String s = "say hello in this string multiple times to count no of hello";
 
-        System.out.println("No of occurences: "+Utils.countOccurence(s,"say"));
+        System.out.println("No of occurences: "+Utils.countOccurence(s,"hello"));
 
     }
 
