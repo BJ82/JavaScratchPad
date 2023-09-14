@@ -4,6 +4,8 @@ import org.Interfaces.List;
 import org.Interfaces.Queue;
 import org.LinkList.DoubleLinkList;
 import org.Stack.Stack;
+import org.Threads.EvenNumber;
+import org.Threads.OddNumber;
 import org.Utils.Utils;
 
 import java.util.Arrays;
@@ -107,6 +109,11 @@ public class Main {
         String s = "say hello in this string multiple times to count no of hello";
 
         System.out.println("No of occurences: "+Utils.countOccurence(s,"hello"));
+
+        OddNumber oddNoThread = new OddNumber();
+        EvenNumber evenNoThread  = new EvenNumber();
+        oddNoThread.start();
+        evenNoThread.start();
 
     }
 
