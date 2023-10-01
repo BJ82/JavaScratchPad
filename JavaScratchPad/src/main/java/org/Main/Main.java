@@ -1,5 +1,6 @@
 package org.Main;
 
+import org.DesignPattern.Singleton;
 import org.Interfaces.List;
 import org.Interfaces.Queue;
 import org.LinkList.DoubleLinkList;
@@ -11,7 +12,7 @@ import org.Utils.Utils;
 import java.util.Arrays;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         System.out.println("Is sts Palindrome:"+ Utils.isPalindrome("sts"));
         System.out.println("Is 15151 Palindrome:" + Utils.isPalindrome(15151));
         List<Integer> list = new DoubleLinkList<>();
@@ -110,10 +111,58 @@ public class Main {
 
         System.out.println("No of occurences: "+Utils.countOccurence(s,"hello"));
 
-        OddNumber oddNoThread = new OddNumber();
-        EvenNumber evenNoThread  = new EvenNumber();
+
+        Thread oddNoThread = new Thread(()->{
+            for(int i=1;i<=49;i+=2){
+                System.out.println(i);
+                try {
+                    Thread.sleep(2000);
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+        });
+
+        Thread evenNoThread = new Thread(()->{
+            for(int i=2;i<=50;i+=2){
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
+
+                System.out.println(i);
+
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+        });
+
         oddNoThread.start();
         evenNoThread.start();
+        evenNoThread.join();
+
+       Thread t1 = new Thread(()->{
+            Singleton.getObject();
+            System.out.println("Singleton Object Count: "+Singleton.getCountOfObjects());
+        });
+        t1.start();
+
+
+        Thread t2 = new Thread(()->{
+            Singleton.getObject();
+            System.out.println("Singleton Object Count: "+Singleton.getCountOfObjects());
+        });
+        t2.start();
+
+        Thread t3 = new Thread(()->{
+            Singleton.getObject();
+            System.out.println("Singleton Object Count: "+Singleton.getCountOfObjects());
+        });
+        t3.start();
 
     }
 
