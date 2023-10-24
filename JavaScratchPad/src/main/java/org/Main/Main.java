@@ -164,6 +164,9 @@ public class Main {
         });
         t3.start();
 
+        Utils.printToConsole(Utils.currencyCount(868));
+
     }
+
 
 }

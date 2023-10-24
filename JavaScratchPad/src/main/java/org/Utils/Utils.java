@@ -4,6 +4,9 @@ import org.Interfaces.List;
 import org.LinkList.Node;
 import org.Stack.Stack;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class Utils {
 
     public static <T> void printToConsole(List<T> list){
@@ -21,6 +24,10 @@ public class Utils {
             System.out.println(temp.getData()+" ");
             temp = temp.getNext();
         }
+    }
+
+    public static <T> void printToConsole(Map<T,T> map){
+        map.forEach((key,value)-> System.out.println(key+" : "+value));
     }
 
     public static <T> void printToConsole(T [] arry){
@@ -274,4 +281,28 @@ public class Utils {
     public static void copyArray(Integer[] from,int fromIdx,Integer[] to,int toIdx,int length){
         System.arraycopy(from, fromIdx, to, toIdx, length);
     }
+
+    public static Map<Integer,Integer> currencyCount(int amt){
+        Map<Integer, Integer> count = new HashMap<Integer, Integer>();
+        int[] notes = new int[]{ 2000, 500, 200, 100, 50, 20, 10, 5, 1 };
+        for(int i=0;i<9;i++){
+
+            if(amt >= notes[i]){
+                addCount(notes[i],count);
+                amt = amt-notes[i];
+            }
+
+            if(i == 8 && amt !=0)
+                i = 0;
+        }
+        return count;
+    }
+
+    private static void addCount(int noteDenom,Map<Integer,Integer> count){
+        if(count.get(noteDenom) == null)
+            count.put(noteDenom,1);
+        else
+            count.put(noteDenom,count.get(noteDenom)+1);
+    }
+
 }
