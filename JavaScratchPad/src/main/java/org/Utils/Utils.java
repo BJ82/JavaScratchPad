@@ -5,7 +5,9 @@ import org.LinkList.Node;
 import org.Stack.Stack;
 
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.TreeMap;
 
 public class Utils {
 
@@ -27,6 +29,7 @@ public class Utils {
     }
 
     public static <T> void printToConsole(Map<T,T> map){
+
         map.forEach((key,value)-> System.out.println(key+" : "+value));
     }
 
@@ -283,7 +286,7 @@ public class Utils {
     }
 
     public static Map<Integer,Integer> currencyCount(int amt){
-        Map<Integer, Integer> count = new HashMap<Integer, Integer>();
+        Map<Integer, Integer> count = new LinkedHashMap<Integer, Integer>();
         int[] notes = new int[]{ 2000, 500, 200, 100, 50, 20, 10, 5, 1 };
         for(int i=0;i<9;i++){
 
