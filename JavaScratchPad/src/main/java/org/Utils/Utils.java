@@ -291,21 +291,11 @@ public class Utils {
         for(int i=0;i<9;i++){
 
             if(amt >= notes[i]){
-                addCount(notes[i],count);
+                count.put(notes[i],amt/notes[i]);
                 amt = amt-notes[i];
             }
-
-            if(i == 8 && amt !=0)
-                i = 0;
         }
         return count;
-    }
-
-    private static void addCount(int noteDenom,Map<Integer,Integer> count){
-        if(count.get(noteDenom) == null)
-            count.put(noteDenom,1);
-        else
-            count.put(noteDenom,count.get(noteDenom)+1);
     }
 
 }
