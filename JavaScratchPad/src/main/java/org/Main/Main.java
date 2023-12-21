@@ -1,5 +1,9 @@
 package org.Main;
 
+import org.DesignPattern.Composite.Building;
+import org.DesignPattern.Composite.Flat;
+import org.DesignPattern.Composite.Residence;
+import org.DesignPattern.Composite.Society;
 import org.DesignPattern.Singleton;
 import org.Interfaces.List;
 import org.Interfaces.Queue;
@@ -141,9 +145,9 @@ public class Main {
             }
         });
 
-        oddNoThread.start();
+        /*oddNoThread.start();
         evenNoThread.start();
-        evenNoThread.join();
+        evenNoThread.join();*/
 
        Thread t1 = new Thread(()->{
             Singleton.getObject();
@@ -165,6 +169,24 @@ public class Main {
         t3.start();
 
         Utils.printToConsole(Utils.currencyCount(868));
+
+        Residence f1 = new Flat("FLAT-ONE",1);
+        Residence f2 = new Flat("FLAT-TWO",2);
+        Residence f3 = new Flat("FLAT-THREE", 3);
+        Residence f4 = new Flat("FLAT-FOUR", 4);
+
+        Residence b1 = new Building("First Building", java.util.List.of(f1,f2,f3,f4) , 2020);
+
+        Residence f5 = new Flat("FLAT-ONE",1);
+        Residence f6 = new Flat("FLAT-TWO",2);
+        Residence f7 = new Flat("FLAT-THREE", 3);
+        Residence f8 = new Flat("FLAT-FOUR", 4);
+
+        Residence b2 = new Building("Second Building", java.util.List.of(f5,f6,f7,f8) , 2021);
+
+        Residence society = new Society("Sushant Co-operative Housing Society", java.util.List.of(b1,b2),2019);
+
+        System.out.println(society.getName());
 
     }
 

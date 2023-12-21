@@ -4,10 +4,7 @@ import org.Interfaces.List;
 import org.LinkList.Node;
 import org.Stack.Stack;
 
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.Map;
-import java.util.TreeMap;
+import java.util.*;
 
 public class Utils {
 
@@ -64,7 +61,6 @@ public class Utils {
 
         return checkIfPalindrome(str,0,getLastIndex(str));
     }
-
 
     private static boolean checkIfPalindrome(String s,int indx,int lstIndx){
         if(indx>lstIndx)
@@ -298,4 +294,25 @@ public class Utils {
         return count;
     }
 
+    public static String updateStr(String bldgName, String societyName){
+
+        char arry [] = new char [bldgName.indexOf(":")+1];
+        for(int i=0 ; i<=bldgName.indexOf(":"); i++){
+            arry[i] = bldgName.charAt(i);
+        }
+
+        String str = String.valueOf(arry);
+        String arry1[] = new String[bldgName.length()];
+        arry1 = bldgName.split(str);
+
+        String updatedStr="";
+        for(int j=0; j<arry1.length; j++){
+            if(arry1[j] != null){
+                updatedStr += societyName + ":" + str + arry1[j] + "\n";
+            }
+        }
+
+        return updatedStr;
+
+    }
 }
