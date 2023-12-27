@@ -293,26 +293,4 @@ public class Utils {
         }
         return count;
     }
-
-    public static String updateStr(String bldgName, String societyName){
-
-        char arry [] = new char [bldgName.indexOf(":")+1];
-        for(int i=0 ; i<=bldgName.indexOf(":"); i++){
-            arry[i] = bldgName.charAt(i);
-        }
-
-        String str = String.valueOf(arry);
-        String arry1[] = new String[bldgName.length()];
-        arry1 = bldgName.split(str);
-
-        String updatedStr="";
-        for(int j=0; j<arry1.length; j++){
-            if(arry1[j] != null){
-                updatedStr += societyName + ":" + str + arry1[j] + "\n";
-            }
-        }
-
-        return updatedStr;
-
-    }
 }
