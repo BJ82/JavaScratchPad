@@ -13,13 +13,10 @@ public class TotalFlatCalc implements Visitor{
 
         int totalFlats=0;
         try{
-            Class soctyObj = null;
-            soctyObj = Class.forName("org.DesignPattern.Composite.Society");
-            Field buildings = null;
-            buildings = soctyObj.getDeclaredField("buildings");
+            Class soctyObj = Class.forName("org.DesignPattern.Composite.Society");
+            Field buildings = soctyObj.getDeclaredField("buildings");
             buildings.setAccessible(true);
-            java.util.List listOfBldgn = null;
-            listOfBldgn = (java.util.List) buildings.get(s);
+            java.util.List listOfBldgn = (java.util.List) buildings.get(s);
             for(Object b:listOfBldgn){
                 totalFlats += visit((Building) b);
             }
