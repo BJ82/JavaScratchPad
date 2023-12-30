@@ -5,18 +5,19 @@ import org.DesignPattern.Composite.Flat;
 import org.DesignPattern.Composite.Residence;
 import org.DesignPattern.Composite.Society;
 import org.DesignPattern.Singleton;
+import org.DesignPattern.Visitor.TotalFlatCalc;
 import org.Interfaces.List;
 import org.Interfaces.Queue;
 import org.LinkList.DoubleLinkList;
 import org.Stack.Stack;
-import org.Threads.EvenNumber;
-import org.Threads.OddNumber;
 import org.Utils.Utils;
 
+import java.lang.reflect.Field;
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Main {
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) throws InterruptedException, ClassNotFoundException, NoSuchFieldException, IllegalAccessException {
         System.out.println("Is sts Palindrome:"+ Utils.isPalindrome("sts"));
         System.out.println("Is 15151 Palindrome:" + Utils.isPalindrome(15151));
         List<Integer> list = new DoubleLinkList<>();
@@ -186,8 +187,11 @@ public class Main {
 
         Residence society = new Society("Sushant Co-operative Housing Society", java.util.List.of(b1,b2),2019);
 
-        System.out.println(society.getName());
+        TotalFlatCalc totFlatCalc = new TotalFlatCalc();
+        int count= ((Society) society).accept(totFlatCalc);
+        System.out.println("Total No Of Flats in Society:"+count);
 
+        System.out.println("Total Flats in building b2:"+ ((Building) b2).accept(totFlatCalc));
     }
 
 

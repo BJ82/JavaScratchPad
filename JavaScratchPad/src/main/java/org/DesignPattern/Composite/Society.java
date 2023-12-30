@@ -1,12 +1,13 @@
 package org.DesignPattern.Composite;
 
-import org.Utils.Utils;
+import org.DesignPattern.Visitor.Visitable;
+import org.DesignPattern.Visitor.Visitor;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.atomic.AtomicReference;
 
-public class Society implements Residence{
+
+public class Society implements Residence, Visitable {
 
     private String societyName;
     private int yrOfEstblmnt;
@@ -17,7 +18,7 @@ public class Society implements Residence{
         this.yrOfEstblmnt = yrOfEstblmnt;
     }
 
-
+    public int getTotalNoOfBuildings(){return buildings.size();}
     @Override
     public String getName() {
 
@@ -52,5 +53,10 @@ public class Society implements Residence{
         return updatedStr;
 
 
+    }
+
+    @Override
+    public int accept(Visitor v) {
+        return v.visit(this);
     }
 }
