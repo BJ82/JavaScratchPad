@@ -9,7 +9,7 @@ public class Flat implements Residence{
     @Override
     public String toString() {
         return
-                "FlatName:" + flatName +
+                "FlatName:" + flatName + " "+
                 "FlatNo:" + flatNo;
     }
 

@@ -5,6 +5,7 @@ import org.DesignPattern.Composite.Flat;
 import org.DesignPattern.Composite.Residence;
 import org.DesignPattern.Composite.Society;
 import org.DesignPattern.Singleton;
+import org.DesignPattern.Visitor.FlatOccupancyTracker;
 import org.DesignPattern.Visitor.TotalFlatCalc;
 import org.Interfaces.List;
 import org.Interfaces.Queue;
@@ -195,14 +196,21 @@ public class Main {
 
         System.out.println("Total Flats in building b2:"+ ((Building) b2).accept(totFlatCalc));
 
-        /*Map<String,String> map = new HashMap<>();
-        map.put("Brahmjyot","Dhanjal");
-        map.put("Arvinder","Kaur");
+        FlatOccupancyTracker tracker = new FlatOccupancyTracker();
+        tracker.track((Society) society, (Building) b1, (Flat) f1,"rented");
+        tracker.track((Society) society, (Building) b1, (Flat) f2,"rented");
+        tracker.track((Society) society, (Building) b1, (Flat) f3,"owner occupied");
+        tracker.track((Society) society, (Building) b1, (Flat) f4,"rented");
 
-        Map<String,Map<String,String>> map1 = new HashMap<>();
-        map1.put("Palak",map);
+        tracker.track((Society) society, (Building) b2, (Flat) f5,"owner occupied");
+        tracker.track((Society) society, (Building) b2, (Flat) f6,"owner occupied");
+        tracker.track((Society) society, (Building) b2, (Flat) f7,"owner occupied");
+        tracker.track((Society) society, (Building) b2, (Flat) f8,"rented");
 
-        System.out.println("Map size is:"+map1.get("Palak").size());*/
+        String status = (String) ((Society) society).accept(tracker);
+        String status1 = (String) ((Building) b2).accept(tracker);
+        System.out.println(status);
+        System.out.println(status1);
 
     }
 
