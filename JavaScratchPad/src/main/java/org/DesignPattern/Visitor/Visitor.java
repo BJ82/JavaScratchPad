@@ -5,6 +5,6 @@ import org.DesignPattern.Composite.Residence;
 import org.DesignPattern.Composite.Society;
 
 public interface Visitor {
-    public int visit(Society s);
-    public int visit(Building b);
+    public Object visit(Society s);
+    public Object visit(Building b);
 }

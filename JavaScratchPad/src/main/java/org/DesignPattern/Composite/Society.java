@@ -19,6 +19,13 @@ public class Society implements Residence, Visitable {
     }
 
     public int getTotalNoOfBuildings(){return buildings.size();}
+
+    @Override
+    public String toString() {
+        return "societyName:" + societyName;
+
+    }
+
     @Override
     public String getName() {
 
@@ -56,7 +63,7 @@ public class Society implements Residence, Visitable {
     }
 
     @Override
-    public int accept(Visitor v) {
+    public Object accept(Visitor v) {
         return v.visit(this);
     }
 }

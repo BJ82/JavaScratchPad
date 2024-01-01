@@ -6,6 +6,13 @@ public class Flat implements Residence{
 
     private int flatNo;
 
+    @Override
+    public String toString() {
+        return
+                "FlatName:" + flatName +
+                "FlatNo:" + flatNo;
+    }
+
     public Flat(String flatName, int flatNo) {
         this.flatName = flatName;
         this.flatNo = flatNo;

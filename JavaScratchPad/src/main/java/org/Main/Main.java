@@ -15,6 +15,8 @@ import org.Utils.Utils;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Main {
     public static void main(String[] args) throws InterruptedException, ClassNotFoundException, NoSuchFieldException, IllegalAccessException {
@@ -188,10 +190,20 @@ public class Main {
         Residence society = new Society("Sushant Co-operative Housing Society", java.util.List.of(b1,b2),2019);
 
         TotalFlatCalc totFlatCalc = new TotalFlatCalc();
-        int count= ((Society) society).accept(totFlatCalc);
+        int count= (int)((Society) society).accept(totFlatCalc);
         System.out.println("Total No Of Flats in Society:"+count);
 
         System.out.println("Total Flats in building b2:"+ ((Building) b2).accept(totFlatCalc));
+
+        /*Map<String,String> map = new HashMap<>();
+        map.put("Brahmjyot","Dhanjal");
+        map.put("Arvinder","Kaur");
+
+        Map<String,Map<String,String>> map1 = new HashMap<>();
+        map1.put("Palak",map);
+
+        System.out.println("Map size is:"+map1.get("Palak").size());*/
+
     }
 
 

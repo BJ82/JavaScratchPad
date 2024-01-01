@@ -9,7 +9,7 @@ import java.lang.reflect.Field;
 public class TotalFlatCalc implements Visitor{
 
     @Override
-    public int visit(Society s) {
+    public Object visit(Society s) {
 
         int totalFlats=0;
         try{
@@ -18,7 +18,7 @@ public class TotalFlatCalc implements Visitor{
             buildings.setAccessible(true);
             java.util.List listOfBldgn = (java.util.List) buildings.get(s);
             for(Object b:listOfBldgn){
-                totalFlats += visit((Building) b);
+                totalFlats += (int)visit((Building) b);
             }
 
         }
@@ -29,7 +29,7 @@ public class TotalFlatCalc implements Visitor{
     }
 
     @Override
-    public int visit(Building b) {
+    public Object visit(Building b) {
 
         java.util.List listOfFlats = null;
         try{
