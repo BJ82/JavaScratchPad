@@ -22,10 +22,10 @@ public class FlatOccupancyTracker implements Visitor{
 
         }
         else {
-            Map<Building,Map<Flat,String>> bldgnToFlatMap = soctyToBldgnMap.get(s);;
+            Map<Building,Map<Flat,String>> bldgnToFlatMap = soctyToBldgnMap.get(s);
             Map<Flat,String> flatStatus = bldgnToFlatMap.get(b);
             if(flatStatus == null)
-                flatStatus = new HashMap<>();
+                flatStatus = new LinkedHashMap<>();
             flatStatus.put(f,status);
             bldgnToFlatMap.put(b,flatStatus);
             soctyToBldgnMap.put(s,bldgnToFlatMap);
