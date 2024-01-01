@@ -23,6 +23,8 @@ Utilities:
  7) Print odd/even numbers by multiple threads
 
 Singleton Design Pattern
+
 Composite Design Pattern
+
 Visitor Pattern
  
