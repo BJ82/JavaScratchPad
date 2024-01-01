@@ -3,9 +3,13 @@ Implementation For
 
 DataStructures:
  1)LinkList
+ 
  2)DoubleLinkList
+ 
  3)Queues
+ 
  4)Stacks
+ 
  5)Binary Search Tree
  
 Algorithms:
