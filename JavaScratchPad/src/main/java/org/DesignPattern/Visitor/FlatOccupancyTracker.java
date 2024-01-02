@@ -69,7 +69,7 @@ public class FlatOccupancyTracker implements Visitor{
         for(Society s:keys){
                 bldngKeys = soctyToBldgnMap.get(s).keySet();
                 for(Building b:bldngKeys){
-                    if(b.equals(bldng)){
+                    if(b.equals(bldng) && b == bldng){
                         flatKeys = soctyToBldgnMap.get(s).get(b).keySet();
                         for(Flat f:flatKeys){
                             String status = soctyToBldgnMap.get(s).get(b).get(f);

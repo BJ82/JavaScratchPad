@@ -188,7 +188,10 @@ public class Main {
 
         Residence b2 = new Building("Second Building", java.util.List.of(f5,f6,f7,f8) , 2021);
 
+        Residence b3 = new Building("First Building", java.util.List.of(f1,f2,f3,f4) , 2020);
+
         Residence society = new Society("Sushant Co-operative Housing Society", java.util.List.of(b1,b2),2019);
+        Residence society2 = new Society("SushantLok Co-operative Housing Society", java.util.List.of(b3),2021);
 
         TotalFlatCalc totFlatCalc = new TotalFlatCalc();
         int count= (int)((Society) society).accept(totFlatCalc);
@@ -207,11 +210,19 @@ public class Main {
         tracker.track((Society) society, (Building) b2, (Flat) f7,"owner occupied");
         tracker.track((Society) society, (Building) b2, (Flat) f8,"rented");
 
+        tracker.track((Society) society2, (Building) b3, (Flat) f1,"rented");
+        tracker.track((Society) society2, (Building) b3, (Flat) f2,"rented");
+        tracker.track((Society) society2, (Building) b3, (Flat) f3,"rented");
+        tracker.track((Society) society2, (Building) b3, (Flat) f4,"rented");
+
         String status = (String) ((Society) society).accept(tracker);
         String status1 = (String) ((Building) b2).accept(tracker);
+        String status2 = (String) ((Building) b3).accept(tracker);
+        String status3 = (String) ((Society) society2).accept(tracker);
         System.out.println(status);
         System.out.println(status1);
-
+        System.out.println(status2);
+        System.out.println(status3);
     }
 
 
