@@ -34,19 +34,22 @@ public class FlatOccupancyTracker implements Visitor{
     @Override
     public Object visit(Society s) {
 
-        Set<Society> keys = new LinkedHashSet<>();
-        keys =  soctyToBldgnMap.keySet();
-
-        Set<Building> bldngKeys = new LinkedHashSet<>();
-        Set<Flat> flatKeys = new LinkedHashSet<>();
-
         StringBuilder flatStatusInfo = new StringBuilder();
-        for(Society skey:keys){
-            if(skey.equals(s)){
-                bldngKeys = soctyToBldgnMap.get(s).keySet();
-                for(Building b:bldngKeys){
-                    flatKeys = soctyToBldgnMap.get(s).get(b).keySet();
-                    for(Flat f:flatKeys){
+
+        Set<Flat> flats = new LinkedHashSet<>();
+        Set<Building> buildings = new LinkedHashSet<>();
+        Set<Society> societies = new LinkedHashSet<>();
+        societies =  soctyToBldgnMap.keySet();
+
+        for(Society socty:societies){
+
+            if(socty.equals(s)){
+                buildings = soctyToBldgnMap.get(s).keySet();
+
+                for(Building b:buildings){
+                    flats = soctyToBldgnMap.get(s).get(b).keySet();
+
+                    for(Flat f:flats){
                         String status = soctyToBldgnMap.get(s).get(b).get(f);
                         flatStatusInfo.append(s.toString()).append(" ").append(b.toString()).append(" ").append(f.toString()).append(" ").append(status).append("\n");
                     }
@@ -60,22 +63,27 @@ public class FlatOccupancyTracker implements Visitor{
 
     @Override
     public Object visit(Building bldng) {
-        Set<Society> keys = new LinkedHashSet<>();
-        keys =  soctyToBldgnMap.keySet();
 
-        Set<Building> bldngKeys = new LinkedHashSet<>();
-        Set<Flat> flatKeys = new LinkedHashSet<>();
         StringBuilder flatStatusInfo = new StringBuilder();
-        for(Society s:keys){
-                bldngKeys = soctyToBldgnMap.get(s).keySet();
-                for(Building b:bldngKeys){
+
+        Set<Flat> flats = new LinkedHashSet<>();
+        Set<Building> buildings = new LinkedHashSet<>();
+        Set<Society> societies = new LinkedHashSet<>();
+        societies =  soctyToBldgnMap.keySet();
+
+        for(Society socty:societies){
+
+                buildings = soctyToBldgnMap.get(socty).keySet();
+
+                for(Building b:buildings){
                     if(b.equals(bldng) && b == bldng){
-                        flatKeys = soctyToBldgnMap.get(s).get(b).keySet();
-                        for(Flat f:flatKeys){
-                            String status = soctyToBldgnMap.get(s).get(b).get(f);
-                            flatStatusInfo.append(b.toString()).append(" ").append(f.toString()).append(" ").append(status).append("\n");
-                        }
+                        flats = soctyToBldgnMap.get(socty).get(b).keySet();
+
+                        for(Flat f:flats){
+                            String status = soctyToBldgnMap.get(socty).get(b).get(f);
+                            flatStatusInfo.append(b.toString()).append(" ").append(f.toString()).append(" ").append(status).append("\n");                        }
                     }
+
                 }
 
 
