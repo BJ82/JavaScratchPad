@@ -1,19 +1,12 @@
-public class TreeNode {
-      int val;
-      TreeNode left;
-      TreeNode right;
-      TreeNode() {}
-      TreeNode(int val) { this.val = val; }
-      TreeNode(int val, TreeNode left, TreeNode right) {
-          this.val = val;
-          this.left = left;
-          this.right = right;
-      }
+package org.Tree;
 
-private Map<Integer,Integer> counter = new HashMap<Integer,Integer>();
+import java.util.HashMap;
+import java.util.Map;
 
+public class BST {
+
+    private Map<Integer,Integer> counter = new HashMap<Integer,Integer>();
     public boolean isValidBST(TreeNode root) {
-
         boolean isBST = false;
 
         if(counter.isEmpty()){
@@ -27,7 +20,7 @@ private Map<Integer,Integer> counter = new HashMap<Integer,Integer>();
         if(ChildCount(root) == 0){
             isBST = true;
         }
-        
+
         if(ChildCount(root) == 1){
             if(root.left != null){
 
@@ -35,7 +28,7 @@ private Map<Integer,Integer> counter = new HashMap<Integer,Integer>();
 
                     isBST = isValidBST(root.left);
                 }
-                    
+
 
                 if(max(root.left).val > root.val)
                     isBST = false;
@@ -45,37 +38,36 @@ private Map<Integer,Integer> counter = new HashMap<Integer,Integer>();
                 if(root.right.val > root.val){
                     isBST = isValidBST(root.right);
                 }
-                    
+
 
                 if(min(root.right).val < root.val)
                     isBST = false;
             }
 
-            
+
         }
 
         if(ChildCount(root) == 2){
 
-                if(root.left.val < root.val && root.right.val > root.val){
-                    boolean isLeftValidBST = isValidBST(root.left);
-                    boolean isRightValidBST = isValidBST(root.right);
-                    isBST = isLeftValidBST && isRightValidBST;
-                }       
+            if(root.left.val < root.val && root.right.val > root.val){
+                boolean isLeftValidBST = isValidBST(root.left);
+                boolean isRightValidBST = isValidBST(root.right);
+                isBST = isLeftValidBST && isRightValidBST;
+            }
 
-                if(min(root.right).val < root.val)
-                    isBST = false;
+            if(min(root.right).val < root.val)
+                isBST = false;
 
-                if(max(root.left).val > root.val)
-                    isBST = false;
+            if(max(root.left).val > root.val)
+                isBST = false;
 
         }
 
         return isBST;
-       
     }
 
     private int ChildCount(TreeNode root){
-	
+
         int childCount = -1;
         if(root.left == null && root.right == null){
             childCount = 0;
@@ -86,7 +78,7 @@ private Map<Integer,Integer> counter = new HashMap<Integer,Integer>();
         else{
             childCount = 1;
         }
-        
+
         return childCount;
 
     }
@@ -95,44 +87,44 @@ private Map<Integer,Integer> counter = new HashMap<Integer,Integer>();
 
         if(root == null)
             return null;
-        
+
         if(root.left == null)
             return root;
 
-       return min(root.left);
+        return min(root.left);
     }
 
     private TreeNode max(TreeNode root){
 
         if(root == null)
             return null;
-        
+
         if(root.right == null)
             return root;
 
-       return max(root.right);
+        return max(root.right);
     }
 
     private void scanDuplicate(TreeNode root){
-        
+
         if(root == null)
             return;
 
-       Integer count;
+        Integer count;
 
-       if(counter.get(root.val) == null)
+        if(counter.get(root.val) == null)
             count = 0;
-       else
-            count = counter.get(root.val); 
+        else
+            count = counter.get(root.val);
 
-       count++;
+        count++;
 
-       counter.put(root.val,count);
+        counter.put(root.val,count);
 
-       scanDuplicate(root.left);
-       
-       scanDuplicate(root.right);
-       
+        scanDuplicate(root.left);
+
+        scanDuplicate(root.right);
+
     }
 
     private boolean hasDuplicate(TreeNode root){
@@ -140,13 +132,13 @@ private Map<Integer,Integer> counter = new HashMap<Integer,Integer>();
         scanDuplicate(root);
 
         for(Map.Entry<Integer,Integer> m:counter.entrySet()){
-           if(m.getValue() > 1)
+            if(m.getValue() > 1)
                 return true;
-       }
-       return false;
+        }
+        return false;
     }
 
-public TreeNode deleteNode(TreeNode root, int key) {
+    public TreeNode deleteNode(TreeNode root, int key) {
         return delete(null,root,key);
     }
 
@@ -165,15 +157,15 @@ public TreeNode deleteNode(TreeNode root, int key) {
             else if(parent.right == root){
                 ReorderNodesRight(parent,root);
             }
-            
+
         }
         else if(data < root.val){
             delete(root,root.left,data);
-            
+
         }
         else if(data > root.val){
             delete(root,root.right,data);
-            
+
         }
         return root;
     }
@@ -181,83 +173,56 @@ public TreeNode deleteNode(TreeNode root, int key) {
     private TreeNode ReorderRoot(TreeNode root){
 
         if(ChildCount(root) ==2){
-		  TreeNode minNode = min(root.right);
-          minNode.left = root.left;
-          root = root.right;
-		}
-		else {
-		  TreeNode child = root.left;
-		   if(child == null)
-			child = root.right;
-		   root = child;
-		}
+            TreeNode minNode = min(root.right);
+            minNode.left = root.left;
+            root = root.right;
+        }
+        else {
+            TreeNode child = root.left;
+            if(child == null)
+                child = root.right;
+            root = child;
+        }
         return root;
     }
 
-    private TreeNode min(TreeNode root){
-
-        if(root == null)
-            return null;
-        
-        if(root.left == null)
-            return root;
-
-       return min(root.left);
-    }
-
     private void ReorderNodesLeft(TreeNode parent, TreeNode root){
-		
-		
-		if(ChildCount(root) ==2){
-          
-          TreeNode minNode = min(root.right);
-          minNode.left = root.left;
-		  parent.left = root.right;
-		  root = null;
-		}
-		else {
-		  TreeNode child = root.left;
-		   if(child == null)
-			child = root.right;
-		   root = null;
-		   parent.left = child;
-		}
+
+
+        if(ChildCount(root) ==2){
+
+            TreeNode minNode = min(root.right);
+            minNode.left = root.left;
+            parent.left = root.right;
+            root = null;
+        }
+        else {
+            TreeNode child = root.left;
+            if(child == null)
+                child = root.right;
+            root = null;
+            parent.left = child;
+        }
 
     }
 
     private void ReorderNodesRight(TreeNode parent, TreeNode root){
-            
-            
-            if(ChildCount(root) ==2){
+
+
+        if(ChildCount(root) ==2){
             parent.right = root.right;
             TreeNode minNode = min(parent.right);
             minNode.left = root.left;
             root = null;
-            }
-            else {
+        }
+        else {
             TreeNode child = root.left;
             if(child == null)
                 child = root.right;
             root = null;
             parent.right = child;
-            }
+        }
 
     }
 
-    private int ChildCount(TreeNode root){
-	
-        int childCount = -1;
-        if(root.left == null && root.right == null){
-            childCount = 0;
-        }
-        else if(root.left != null && root.right != null){
-            childCount = 2;
-        }
-        else{
-            childCount = 1;
-        }
-        
-        return childCount;
-
-    }
-  }
+}
