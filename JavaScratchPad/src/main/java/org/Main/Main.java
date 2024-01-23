@@ -1,25 +1,21 @@
 package org.Main;
 
-import org.DesignPattern.Composite.Building;
-import org.DesignPattern.Composite.Flat;
-import org.DesignPattern.Composite.Residence;
-import org.DesignPattern.Composite.Society;
-import org.DesignPattern.Singleton;
-import org.DesignPattern.Visitor.FlatOccupancyTracker;
-import org.DesignPattern.Visitor.TotalFlatCalc;
+import org.designpattern.Composite.Building;
+import org.designpattern.Composite.Flat;
+import org.designpattern.Composite.Residence;
+import org.designpattern.Composite.Society;
+import org.designpattern.Singleton;
+import org.designpattern.visitor.FlatOccupancyTracker;
+import org.designpattern.visitor.TotalFlatCalc;
 import org.Interfaces.List;
 import org.Interfaces.Queue;
 import org.LinkList.DoubleLinkList;
 import org.Stack.Stack;
-import org.Utils.Utils;
+import org.utils.Utils;
 import org.tree.BST;
 import org.tree.TreeNode;
 
-import java.lang.reflect.Field;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
 
 public class Main {
     public static void main(String[] args) throws InterruptedException, ClassNotFoundException, NoSuchFieldException, IllegalAccessException {
@@ -88,14 +84,14 @@ public class Main {
 
         int [] arry1 = {4,2,5,10,3,7};
 
-        Utils.InsertionSort(arry1);
+        Utils.insertionSort(arry1);
 
         System.out.println("Insertion Sort");
         Utils.printToConsole(Arrays.stream( arry1 ).boxed().toArray( Integer[]::new ));
 
         int [] arry2 = {100,76,5,10,3,7};
 
-        Utils.BubbleSort(arry2);
+        Utils.bubbleSort(arry2);
 
         System.out.println("Bubble Sort");
         Utils.printToConsole(Arrays.stream( arry2 ).boxed().toArray( Integer[]::new ));
@@ -104,7 +100,7 @@ public class Main {
 
         int [] arry3 = {102,76,251,10,3,7};
 
-        Utils.SelectionSort(arry3);
+        Utils.selectionSort(arry3);
 
         System.out.println("Selection Sort");
         Utils.printToConsole(Arrays.stream( arry3 ).boxed().toArray( Integer[]::new ));
@@ -112,9 +108,9 @@ public class Main {
 
         Integer [] arry4 = {122,121,65,34,28,16,14,10,1};
 
-        Utils.MergeSort(arry4);
+        Utils.mergeSort(arry4);
 
-        System.out.println("Merge Sort");
+        System.out.println("merge Sort");
         Utils.printToConsole(arry4);
 
         String s = "say hello in this string multiple times to count no of hello";

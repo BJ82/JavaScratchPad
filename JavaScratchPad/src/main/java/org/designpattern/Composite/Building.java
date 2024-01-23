@@ -1,7 +1,7 @@
-package org.DesignPattern.Composite;
+package org.designpattern.Composite;
 
-import org.DesignPattern.Visitor.Visitable;
-import org.DesignPattern.Visitor.Visitor;
+import org.designpattern.visitor.Visitable;
+import org.designpattern.visitor.Visitor;
 
 import java.util.ArrayList;
 import java.util.List;

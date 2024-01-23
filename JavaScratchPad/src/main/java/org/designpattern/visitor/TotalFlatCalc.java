@@ -1,7 +1,7 @@
-package org.DesignPattern.Visitor;
+package org.designpattern.visitor;
 
-import org.DesignPattern.Composite.Building;
-import org.DesignPattern.Composite.Society;
+import org.designpattern.Composite.Building;
+import org.designpattern.Composite.Society;
 
 import java.lang.reflect.Field;
 
@@ -13,7 +13,7 @@ public class TotalFlatCalc implements Visitor{
 
         int totalFlats=0;
         try{
-            Class soctyObj = Class.forName("org.DesignPattern.Composite.Society");
+            Class soctyObj = Class.forName("org.designpattern.Composite.Society");
             Field buildings = soctyObj.getDeclaredField("buildings");
             buildings.setAccessible(true);
             java.util.List listOfBldgn = (java.util.List) buildings.get(s);
@@ -34,7 +34,7 @@ public class TotalFlatCalc implements Visitor{
         java.util.List listOfFlats = null;
         try{
             Class bldngObj = null;
-            bldngObj = Class.forName("org.DesignPattern.Composite.Building");
+            bldngObj = Class.forName("org.designpattern.Composite.Building");
             Field flats = null;
             flats = bldngObj.getDeclaredField("flats");
             flats.setAccessible(true);

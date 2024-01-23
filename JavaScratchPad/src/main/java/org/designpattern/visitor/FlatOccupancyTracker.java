@@ -1,8 +1,8 @@
-package org.DesignPattern.Visitor;
+package org.designpattern.visitor;
 
-import org.DesignPattern.Composite.Building;
-import org.DesignPattern.Composite.Flat;
-import org.DesignPattern.Composite.Society;
+import org.designpattern.Composite.Building;
+import org.designpattern.Composite.Flat;
+import org.designpattern.Composite.Society;
 
 import java.util.*;
 
@@ -36,10 +36,9 @@ public class FlatOccupancyTracker implements Visitor{
 
         StringBuilder flatStatusInfo = new StringBuilder();
 
-        Set<Flat> flats = new LinkedHashSet<>();
-        Set<Building> buildings = new LinkedHashSet<>();
-        Set<Society> societies = new LinkedHashSet<>();
-        societies =  soctyToBldgnMap.keySet();
+        Set<Flat> flats;
+        Set<Building> buildings;
+        Set<Society> societies = soctyToBldgnMap.keySet();
 
         for(Society socty:societies){
 
@@ -66,9 +65,9 @@ public class FlatOccupancyTracker implements Visitor{
 
         StringBuilder flatStatusInfo = new StringBuilder();
 
-        Set<Flat> flats = new LinkedHashSet<>();
-        Set<Building> buildings = new LinkedHashSet<>();
-        Set<Society> societies = new LinkedHashSet<>();
+        Set<Flat> flats;
+        Set<Building> buildings;
+        Set<Society> societies;
         societies =  soctyToBldgnMap.keySet();
 
         for(Society socty:societies){

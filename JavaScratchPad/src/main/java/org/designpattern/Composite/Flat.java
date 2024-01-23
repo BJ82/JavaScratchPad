@@ -1,4 +1,4 @@
-package org.DesignPattern.Composite;
+package org.designpattern.Composite;
 
 public class Flat implements Residence{
 

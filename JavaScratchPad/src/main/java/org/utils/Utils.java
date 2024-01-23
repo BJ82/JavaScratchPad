@@ -1,4 +1,4 @@
-package org.Utils;
+package org.utils;
 
 import org.Interfaces.List;
 import org.LinkList.Node;
@@ -7,6 +7,9 @@ import org.Stack.Stack;
 import java.util.*;
 
 public class Utils {
+    private Utils() {
+
+    }
 
     public static <T> void printToConsole(List<T> list){
 
@@ -51,7 +54,7 @@ public class Utils {
     }
 
     private static String intToString(int i){
-        return Integer.valueOf(i).toString();
+        return Integer.toString(i);
     }
 
     public static boolean isPalindrome(String str){
@@ -165,7 +168,7 @@ public class Utils {
     }
 
 
-    public static void BubbleSort(int[] list){
+    public static void bubbleSort(int[] list){
 
         int n = list.length;
         boolean flag = false;
@@ -187,7 +190,7 @@ public class Utils {
         list[j] = temp;
     }
 
-    public static void InsertionSort(int[] list){
+    public static void insertionSort(int[] list){
 
         int value;
         int hole;
@@ -203,7 +206,7 @@ public class Utils {
         }
     }
 
-    public static void SelectionSort(int[] list){
+    public static void selectionSort(int[] list){
         int n = list.length;
         int imin;
         for(int i=0;i<n-2;i++){
@@ -220,7 +223,7 @@ public class Utils {
         return arry.length;
     }
 
-    public static void MergeSort(Integer [] arry){
+    public static void mergeSort(Integer [] arry){
 
         int size = getSize(arry);
         if(size < 2)
@@ -233,14 +236,14 @@ public class Utils {
         copyArray(arry, 0, left, 0, mid);
         copyArray(arry,mid,right,0,size - mid);
 
-        MergeSort(left);
-        MergeSort(right);
+        mergeSort(left);
+        mergeSort(right);
 
-        Merge(left,right,arry);
+        merge(left,right,arry);
 
     }
 
-    public static void Merge(Integer [] left,Integer [] right,Integer [] Arry){
+    public static void merge(Integer [] left, Integer [] right, Integer [] arry){
 
         int leftArrySize = getSize(left);
         int rightArrySize = getSize(right);
@@ -253,13 +256,13 @@ public class Utils {
 
             if(left[leftIdx] < right[rightIdx]){
 
-                Arry[arryIdx] = left[leftIdx];
+                arry[arryIdx] = left[leftIdx];
                 leftIdx++;
             }
 
             else if(right[rightIdx] < left[leftIdx]){
 
-                Arry[arryIdx] = right[rightIdx];
+                arry[arryIdx] = right[rightIdx];
                 rightIdx++;
             }
             arryIdx++;
@@ -267,11 +270,11 @@ public class Utils {
 
 
         if(leftIdx < leftArrySize)
-            copyArray(left, leftIdx, Arry, arryIdx, leftArrySize-leftIdx);
+            copyArray(left, leftIdx, arry, arryIdx, leftArrySize-leftIdx);
 
 
         if(rightIdx < rightArrySize)
-            copyArray(right,rightIdx,Arry,arryIdx,rightArrySize-rightIdx);
+            copyArray(right,rightIdx,arry,arryIdx,rightArrySize-rightIdx);
 
     }
 
@@ -282,7 +285,7 @@ public class Utils {
     }
 
     public static Map<Integer,Integer> currencyCount(int amt){
-        Map<Integer, Integer> count = new LinkedHashMap<Integer, Integer>();
+        Map<Integer, Integer> count = new LinkedHashMap<>();
         int[] notes = new int[]{ 2000, 500, 200, 100, 50, 20, 10, 5, 1 };
         for(int i=0;i<9;i++){
 

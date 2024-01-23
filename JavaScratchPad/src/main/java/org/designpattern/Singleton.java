@@ -1,4 +1,4 @@
-package org.DesignPattern;
+package org.designpattern;
 
 public class Singleton {
     private static final Singleton singlObj = new Singleton();

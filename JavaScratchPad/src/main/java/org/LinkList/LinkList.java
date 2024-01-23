@@ -1,8 +1,7 @@
 package org.LinkList;
 
 import org.Interfaces.List;
-import org.Stack.Stack;
-import org.Utils.Utils;
+import org.utils.Utils;
 
 /*Single Linked List*/
 public class LinkList <T> implements List<T> {
