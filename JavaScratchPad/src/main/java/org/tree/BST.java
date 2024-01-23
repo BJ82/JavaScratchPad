@@ -11,29 +11,16 @@ public class BST {
     public boolean isValidBST(TreeNode root) {
         boolean isBST = false;
 
-        if(hasDuplicate(root)) {
+        if(hasDuplicate(root))
             return false;
-        }
 
         if(isEmptyTree(root))
             return true;
 
-        if(childCount(root) == 1){
-
-            if(isGreater(max(root.left),root) || isLess(min(root.right),root))
+        if(isLess(min(root.right),root) || isGreater(max(root.left),root))
                 return false;
 
-            isBST = isValidBST(root.left) && isValidBST(root.right);
-
-        }
-
-        if(childCount(root) == 2){
-
-            if(isLess(min(root.right),root) || isGreater(max(root.left),root))
-                return false;
-
-            isBST = isValidBST(root.left) && isValidBST(root.right);
-        }
+        isBST = isValidBST(root.left) && isValidBST(root.right);
 
         return isBST;
     }
@@ -79,6 +66,8 @@ public class BST {
     }
 
     private TreeNode min(TreeNode root){
+        if(isNull(root))
+            return new TreeNode(100000);
 
         if(isNull(root.left))
             return root;
@@ -87,6 +76,8 @@ public class BST {
     }
 
     private TreeNode max(TreeNode root){
+        if(isNull(root))
+            return new TreeNode(0);
 
         if(isNull(root.right))
             return root;

@@ -226,7 +226,7 @@ public class Main {
         System.out.println(status2);
         System.out.println(status3);
 
-        String t = "2 1 3";
+        String t = "3 1 5 N 2 4 8 N N N N 7 N 6";
         TreeNode root = BST.buildTree(t);
         BST bstree = new BST();
         System.out.println(bstree.isValidBST(root));
