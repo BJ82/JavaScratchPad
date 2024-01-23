@@ -12,6 +12,8 @@ import org.Interfaces.Queue;
 import org.LinkList.DoubleLinkList;
 import org.Stack.Stack;
 import org.Utils.Utils;
+import org.tree.BST;
+import org.tree.TreeNode;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
@@ -223,6 +225,11 @@ public class Main {
         System.out.println(status1);
         System.out.println(status2);
         System.out.println(status3);
+
+        String t = "2 1 3";
+        TreeNode root = BST.buildTree(t);
+        BST bstree = new BST();
+        System.out.println(bstree.isValidBST(root));
     }
 
 
