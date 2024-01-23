@@ -80,10 +80,7 @@ public class BST {
 
     private TreeNode min(TreeNode root){
 
-        if(root == null)
-            return null;
-
-        if(root.left == null)
+        if(isNull(root.left))
             return root;
 
         return min(root.left);
@@ -91,10 +88,7 @@ public class BST {
 
     private TreeNode max(TreeNode root){
 
-        if(root == null)
-            return null;
-
-        if(root.right == null)
+        if(isNull(root.right))
             return root;
 
         return max(root.right);
@@ -225,7 +219,7 @@ public class BST {
             return null;
         }
 
-        String ip[] = str.split(" ");
+        String[] ip = str.split(" ");
         // Create the root of the tree
         TreeNode root = new TreeNode(Integer.parseInt(ip[0]));
         // Push the root to the queue
@@ -236,7 +230,7 @@ public class BST {
         // Starting from the second element
 
         int i = 1;
-        while(queue.size()>0 && i < ip.length) {
+        while(!queue.isEmpty() && i < ip.length) {
 
             // Get and remove the front of the queue
             TreeNode currTreeNode = queue.peek();
