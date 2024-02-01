@@ -9,8 +9,8 @@ import java.util.List;
 
 public class Society implements Residence, Visitable {
 
-    private String societyName;
-    private int yrOfEstblmnt;
+    private final String societyName;
+    private final int yrOfEstblmnt;
     private List<Residence> buildings = new ArrayList<>();
     public Society(String societyName,List<Residence> buildings,int yrOfEstblmnt) {
         this.societyName = societyName;
@@ -29,35 +29,34 @@ public class Society implements Residence, Visitable {
     @Override
     public String getName() {
 
-        String fullQualifiedName ="";
+        StringBuilder fullQualifiedName = new StringBuilder();
 
         for(Residence bldg : buildings){
 
-            fullQualifiedName += preFixSocietyName(bldg.getName());
+            fullQualifiedName.append(preFixSocietyName(bldg.getName()));
         }
 
-        return fullQualifiedName;
+        return fullQualifiedName.toString();
     }
     private String preFixSocietyName(String bldgNameFullQualified){
 
 
-        char arry [] = new char [bldgNameFullQualified.indexOf(":")+1];
+        char[] arry = new char [bldgNameFullQualified.indexOf(":")+1];
         for(int i=0 ; i<=bldgNameFullQualified.indexOf(":"); i++){
             arry[i] = bldgNameFullQualified.charAt(i);
         }
         String building = String.valueOf(arry);
 
-        String flat[] = new String[bldgNameFullQualified.length()];
-        flat = bldgNameFullQualified.split(building);
+        String[] flat = bldgNameFullQualified.split(building);
 
-        String updatedStr="";
-        for(int j=0; j<flat.length; j++){
-            if(flat[j] != null){
-                updatedStr += this.societyName + ":" + building + flat[j] + "\n";
+        StringBuilder updatedStr = new StringBuilder(this.societyName + ":" + building);
+        for (String flt : flat) {
+            if (flt != null) {
+                updatedStr.append(flt).append("\n");
             }
         }
 
-        return updatedStr;
+        return updatedStr.toString();
 
 
     }
