@@ -40,17 +40,12 @@ public class Society implements Residence, Visitable {
     }
     private String preFixSocietyName(String bldgNameFullQualified){
 
+        String building  = getBuildingName(bldgNameFullQualified);
 
-        char[] arry = new char [bldgNameFullQualified.indexOf(":")+1];
-        for(int i=0 ; i<=bldgNameFullQualified.indexOf(":"); i++){
-            arry[i] = bldgNameFullQualified.charAt(i);
-        }
-        String building = String.valueOf(arry);
-
-        String[] flat = bldgNameFullQualified.split(building);
+        String[] flats = bldgNameFullQualified.split(building);
 
         StringBuilder updatedStr = new StringBuilder(this.societyName + ":" + building);
-        for (String flt : flat) {
+        for (String flt : flats) {
             if (flt != null) {
                 updatedStr.append(flt).append("\n");
             }
@@ -60,7 +55,14 @@ public class Society implements Residence, Visitable {
 
 
     }
+    private String getBuildingName(String bldgNameFullQualified){
 
+        StringBuilder bldgName = new StringBuilder();
+        for(int i=0 ; i<=bldgNameFullQualified.indexOf(":"); i++){
+            bldgName.append(bldgNameFullQualified.charAt(i));
+        }
+        return bldgName.toString();
+    }
     @Override
     public Object accept(Visitor v) {
         return v.visit(this);
