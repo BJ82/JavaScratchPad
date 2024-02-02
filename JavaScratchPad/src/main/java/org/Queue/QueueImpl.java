@@ -3,7 +3,7 @@ package org.Queue;
 import org.LinkList.DoubleLinkList;
 import org.LinkList.Node;
 
-public class Queue<T> implements org.Interfaces.Queue <T>{
+public class QueueImpl<T> implements org.Interfaces.Queue <T>{
 
     private final DoubleLinkList<T> list;
 
@@ -29,7 +29,7 @@ public class Queue<T> implements org.Interfaces.Queue <T>{
     }
 
 
-    public Queue() {
+    public QueueImpl() {
         list = new DoubleLinkList<>();
         front = rear = null;
     }

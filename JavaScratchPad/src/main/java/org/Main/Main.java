@@ -1,5 +1,6 @@
 package org.Main;
 
+import org.Queue.QueueImpl;
 import org.designpattern.Composite.Building;
 import org.designpattern.Composite.Flat;
 import org.designpattern.Composite.Residence;
@@ -18,16 +19,15 @@ import org.tree.TreeNode;
 import java.util.Arrays;
 
 public class Main {
-    public static void main(String[] args) throws InterruptedException, ClassNotFoundException, NoSuchFieldException, IllegalAccessException {
+    public static void main(String[] args) throws InterruptedException{
         System.out.println("Is sts Palindrome:"+ Utils.isPalindrome("sts"));
         System.out.println("Is 15151 Palindrome:" + Utils.isPalindrome(15151));
         List<Integer> list = new DoubleLinkList<>();
         Utils.printToConsole(list);
 
-        for(int i=6;i>=1;i--){
+        for(int i=1;i<=6;i++){
             list.insertLast(i);
         }
-
         Utils.printToConsole(list);
         list.reverse();
         System.out.println("After Reversing");
@@ -69,7 +69,7 @@ public class Main {
         System.out.println("Is Balanced:"+Utils.isBalancedParenthesis("{[()()]}"));
 
 
-        Queue<Integer> q = new org.Queue.Queue<>();
+        Queue<Integer> q = new QueueImpl<>();
         for (int i=1;i<=7;i++){
             q.Enque(i);
         }
@@ -121,52 +121,41 @@ public class Main {
         Thread oddNoThread = new Thread(()->{
             for(int i=1;i<=49;i+=2){
                 System.out.println(i);
-                try {
-                    Thread.sleep(2000);
-                } catch (InterruptedException e) {
-                    throw new RuntimeException(e);
-                }
+                sleepThread(2000);
             }
         });
 
         Thread evenNoThread = new Thread(()->{
             for(int i=2;i<=50;i+=2){
-                try {
-                    Thread.sleep(1000);
-                } catch (InterruptedException e) {
-                    throw new RuntimeException(e);
-                }
+                sleepThread(1000);
 
                 System.out.println(i);
 
-                try {
-                    Thread.sleep(1000);
-                } catch (InterruptedException e) {
-                    throw new RuntimeException(e);
-                }
+                sleepThread(1000);
             }
         });
 
-        /*oddNoThread.start();
+        oddNoThread.start();
         evenNoThread.start();
-        evenNoThread.join();*/
+        evenNoThread.join();
 
-       Thread t1 = new Thread(()->{
+        String str = "Singleton Object Count:";
+        Thread t1 = new Thread(()->{
             Singleton.getObject();
-            System.out.println("Singleton Object Count: "+Singleton.getCountOfObjects());
+            System.out.println(str+Singleton.getCountOfObjects());
         });
         t1.start();
 
 
         Thread t2 = new Thread(()->{
             Singleton.getObject();
-            System.out.println("Singleton Object Count: "+Singleton.getCountOfObjects());
+            System.out.println(str+Singleton.getCountOfObjects());
         });
         t2.start();
 
         Thread t3 = new Thread(()->{
             Singleton.getObject();
-            System.out.println("Singleton Object Count: "+Singleton.getCountOfObjects());
+            System.out.println(str+Singleton.getCountOfObjects());
         });
         t3.start();
 
@@ -188,8 +177,8 @@ public class Main {
 
         Residence b3 = new Building("First Building", java.util.List.of(f1,f2,f3,f4) , 2020);
 
-        Residence society = new Society("Sushant Co-operative Housing Society", java.util.List.of(b1,b2),2019);
-        Residence society2 = new Society("SushantLok Co-operative Housing Society", java.util.List.of(b3),2021);
+        Residence society = new Society("Sushant Co-operative Housing Society", java.util.List.of(b1,b2));
+        Residence society2 = new Society("SushantLok Co-operative Housing Society", java.util.List.of(b3));
 
         TotalFlatCalc totFlatCalc = new TotalFlatCalc();
         int count= (int)((Society) society).accept(totFlatCalc);
@@ -197,21 +186,24 @@ public class Main {
 
         System.out.println("Total Flats in building b2:"+ ((Building) b2).accept(totFlatCalc));
 
+        String rented = "rented";
+        String ownerOccupied = "owner occupied";
+
         FlatOccupancyTracker tracker = new FlatOccupancyTracker();
-        tracker.track((Society) society, (Building) b1, (Flat) f1,"rented");
-        tracker.track((Society) society, (Building) b1, (Flat) f2,"rented");
-        tracker.track((Society) society, (Building) b1, (Flat) f3,"owner occupied");
-        tracker.track((Society) society, (Building) b1, (Flat) f4,"rented");
+        tracker.track((Society) society, (Building) b1, (Flat) f1,rented);
+        tracker.track((Society) society, (Building) b1, (Flat) f2,rented);
+        tracker.track((Society) society, (Building) b1, (Flat) f3,ownerOccupied);
+        tracker.track((Society) society, (Building) b1, (Flat) f4,rented);
 
-        tracker.track((Society) society, (Building) b2, (Flat) f5,"owner occupied");
-        tracker.track((Society) society, (Building) b2, (Flat) f6,"owner occupied");
-        tracker.track((Society) society, (Building) b2, (Flat) f7,"owner occupied");
-        tracker.track((Society) society, (Building) b2, (Flat) f8,"rented");
+        tracker.track((Society) society, (Building) b2, (Flat) f5,ownerOccupied);
+        tracker.track((Society) society, (Building) b2, (Flat) f6,ownerOccupied);
+        tracker.track((Society) society, (Building) b2, (Flat) f7,ownerOccupied);
+        tracker.track((Society) society, (Building) b2, (Flat) f8,rented);
 
-        tracker.track((Society) society2, (Building) b3, (Flat) f1,"rented");
-        tracker.track((Society) society2, (Building) b3, (Flat) f2,"rented");
-        tracker.track((Society) society2, (Building) b3, (Flat) f3,"rented");
-        tracker.track((Society) society2, (Building) b3, (Flat) f4,"rented");
+        tracker.track((Society) society2, (Building) b3, (Flat) f1,rented);
+        tracker.track((Society) society2, (Building) b3, (Flat) f2,rented);
+        tracker.track((Society) society2, (Building) b3, (Flat) f3,rented);
+        tracker.track((Society) society2, (Building) b3, (Flat) f4,rented);
 
         String status = (String) ((Society) society).accept(tracker);
         String status1 = (String) ((Building) b2).accept(tracker);
@@ -228,5 +220,11 @@ public class Main {
         System.out.println(bstree.isValidBST(root));
     }
 
-
+    public static void sleepThread(int milliSec){
+        try {
+            Thread.sleep(milliSec);
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+        }
+    }
 }

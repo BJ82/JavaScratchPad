@@ -5,8 +5,6 @@ import org.Interfaces.List;
 /*Double Linked List*/
 public class DoubleLinkList<T> implements List<T> {
 
-
-
     private Node<T> head;
 
     public Node <T> getHead() {
@@ -16,7 +14,6 @@ public class DoubleLinkList<T> implements List<T> {
     private void setHead(Node<T> head) {
         this.head = head;
     }
-
 
 
     /*Insert at beginning of list*/
@@ -98,7 +95,6 @@ public class DoubleLinkList<T> implements List<T> {
     }
 
 
-
     /*Remove first entry in the list*/
     public void removeFirst(){
         Node<T> temp = getHead();
@@ -106,17 +102,12 @@ public class DoubleLinkList<T> implements List<T> {
             setHead(temp.getNext());
             removeNode(temp);
         }
-
-
-
     }
-
 
 
     private void removeNode(Node<T> toRemove){
         toRemove.setNext(null);
         toRemove.setPrev(null);
-        toRemove=null;
     }
 
     public void reverse(){

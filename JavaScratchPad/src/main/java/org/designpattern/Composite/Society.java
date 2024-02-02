@@ -10,12 +10,10 @@ import java.util.List;
 public class Society implements Residence, Visitable {
 
     private final String societyName;
-    private final int yrOfEstblmnt;
     private List<Residence> buildings = new ArrayList<>();
-    public Society(String societyName,List<Residence> buildings,int yrOfEstblmnt) {
+    public Society(String societyName,List<Residence> buildings) {
         this.societyName = societyName;
         this.buildings = buildings;
-        this.yrOfEstblmnt = yrOfEstblmnt;
     }
 
     public int getTotalNoOfBuildings(){return buildings.size();}

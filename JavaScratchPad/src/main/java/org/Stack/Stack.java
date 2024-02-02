@@ -7,14 +7,14 @@ import org.LinkList.Node;
 public class Stack <T>{
 
 
-    private Node<T> TOP;
+    private Node<T> top;
 
-    public Node<T> getTOP() {
-        return TOP;
+    public Node<T> getTop() {
+        return top;
     }
 
-    private void setTOP(Node<T> TOP) {
-        this.TOP = TOP;
+    private void setTop(Node<T> top) {
+        this.top = top;
     }
 
 
@@ -36,24 +36,24 @@ public class Stack <T>{
     public void push(T entry){
 
       getlist().insertFirst(entry);
-      setTOP(getlist().getHead());
+      setTop(getlist().getHead());
     }
 
 
     public T pop(){
 
-        if(getTOP()==null)
+        if(getTop()==null)
             return null;
 
         T data = getlist().getHead().getData();
         getlist().removeFirst();
-        setTOP(getlist().getHead());
+        setTop(getlist().getHead());
         return data;
     }
 
 
     public boolean isEmpty(){
-        return getTOP() == null;
+        return getTop() == null;
     }
 
 

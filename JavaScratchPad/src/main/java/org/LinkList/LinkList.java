@@ -95,13 +95,10 @@ public class LinkList <T> implements List<T> {
             removeNode(temp);
         }
 
-
-
     }
 
     private void removeNode(Node<T> toRemove){
         toRemove.setNext(null);
-        toRemove=null;
     }
 
     
