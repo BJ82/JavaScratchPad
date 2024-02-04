@@ -130,7 +130,7 @@ public class BST {
 
         if(root == null) return null;
 
-        if(data == root.val){
+        if(isEqual(data,root)){
 
             if(parent == null){
                 root = reorderRoot(root);
@@ -143,15 +143,26 @@ public class BST {
             }
 
         }
-        else if(data < root.val){
+        else if(isLess(data,root)){
             delete(root,root.left,data);
 
         }
-        else if(data > root.val){
+        else if(isGreater(data,root)){
             delete(root,root.right,data);
 
         }
         return root;
+    }
+
+    private boolean isEqual(int data,TreeNode root){
+        return data == root.val;
+    }
+
+    private boolean isLess(int data,TreeNode root){
+        return data < root.val;
+    }
+    private boolean isGreater(int data,TreeNode root){
+        return data > root.val;
     }
 
     private TreeNode reorderRoot(TreeNode root){
@@ -162,10 +173,7 @@ public class BST {
             root = root.right;
         }
         else {
-            TreeNode child = root.left;
-            if(child == null)
-                child = root.right;
-            root = child;
+            root = getChild(root);
         }
         return root;
     }
@@ -174,17 +182,13 @@ public class BST {
 
 
         if(childCount(root) ==2){
-
             TreeNode minNode = min(root.right);
             minNode.left = root.left;
             parent.left = root.right;
 
         }
         else {
-            TreeNode child = root.left;
-            if(child == null)
-                child = root.right;
-            parent.left = child;
+            parent.left = getChild(root);
         }
     }
 
@@ -192,18 +196,21 @@ public class BST {
 
 
         if(childCount(root) ==2){
-            parent.right = root.right;
             TreeNode minNode = min(parent.right);
             minNode.left = root.left;
+            parent.right = root.right;
         }
         else {
-            TreeNode child = root.left;
-            if(child == null)
-                child = root.right;
-            parent.right = child;
+            parent.right = getChild(root);
         }
     }
 
+    private TreeNode getChild(TreeNode root){
+        TreeNode child = root.left;
+        if(child == null)
+            child = root.right;
+        return child;
+    }
     public static TreeNode buildTree(String str){
 
         if(str.length()==0 || str.charAt(0)=='N'){
