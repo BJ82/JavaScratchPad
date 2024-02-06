@@ -182,9 +182,9 @@ public class BST {
 
 
         if(childCount(root) ==2){
+            parent.left = root.right;
             TreeNode minNode = min(root.right);
             minNode.left = root.left;
-            parent.left = root.right;
 
         }
         else {
@@ -196,9 +196,9 @@ public class BST {
 
 
         if(childCount(root) ==2){
+            parent.right = root.right;
             TreeNode minNode = min(parent.right);
             minNode.left = root.left;
-            parent.right = root.right;
         }
         else {
             parent.right = getChild(root);

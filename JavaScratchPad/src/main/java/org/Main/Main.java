@@ -135,9 +135,9 @@ public class Main {
             }
         });
 
-        oddNoThread.start();
+        /*oddNoThread.start();
         evenNoThread.start();
-        evenNoThread.join();
+        evenNoThread.join();*/
 
         String str = "Singleton Object Count:";
         Thread t1 = new Thread(()->{
@@ -214,9 +214,14 @@ public class Main {
         System.out.println(status2);
         System.out.println(status3);
 
-        String t = "3 1 5 N 2 4 8 N N N N 7 N 6";
+        /*String t = "3 1 5 N 2 4 8 N N N N 7 N 6";
+        TreeNode root = BST.buildTree(t);
+        BST bstree = new BST();*/
+
+        String t = "4 N 7 6 8 5 N N 9";
         TreeNode root = BST.buildTree(t);
         BST bstree = new BST();
+        bstree.deleteNode(root,7);
         System.out.println(bstree.isValidBST(root));
     }
 
