@@ -5,9 +5,11 @@ public interface Queue <T>{
 
      T Deque();
 
-     T Front();
+     T getFront();
 
      boolean isEmpty();
 
      int size();
+
+     void printQueue();
 }

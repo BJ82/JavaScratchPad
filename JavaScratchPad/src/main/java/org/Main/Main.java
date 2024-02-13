@@ -77,10 +77,13 @@ public class Main {
 
         System.out.println("Queue size: "+q.size());
         System.out.println("Queue Entries:");
-        while(!q.isEmpty()){
-            System.out.println(q.Deque());
-        }
+        q.printQueue();
 
+
+        q.Deque();
+        q.Deque();
+        System.out.println("Queue size After Dequing: "+q.size());
+        q.printQueue();
 
         int [] arry1 = {4,2,5,10,3,7};
 

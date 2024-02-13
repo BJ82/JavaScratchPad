@@ -9,8 +9,9 @@ public class QueueImpl<T> implements org.Interfaces.Queue <T>{
 
     private Node <T> front;
 
-    public Node <T> getFront() {
-        return front;
+    public T getFront() {
+
+        return front.getData();
     }
 
     private void setFront(Node <T> front) {
@@ -48,26 +49,10 @@ public class QueueImpl<T> implements org.Interfaces.Queue <T>{
     @Override
     public T Deque() {
 
-        T val =  getFront().getData();
-        setFront(getFront().getPrev());
-        if(getFront()!=null)
-            getFront().setNext(null);
-        else
-            list.removeFirst();
-        return val;
-
-    }
-
-    /*Get Entry From Queue Front */
-    @Override
-    public T Front() {
-        T val;
-        if(getFront()!=null)
-            val = getFront().getData();
-        else
-            val =  null;
-
-        return val;
+        T frontVal = getFront();
+        list.removeLast();
+        setFront(list.getNode(list.size()));
+        return frontVal;
     }
 
     @Override
@@ -80,5 +65,9 @@ public class QueueImpl<T> implements org.Interfaces.Queue <T>{
     @Override
     public int size() {
         return list.size();
+    }
+
+    public void printQueue(){
+        list.revrsTrvsl(list.getHead());
     }
 }
