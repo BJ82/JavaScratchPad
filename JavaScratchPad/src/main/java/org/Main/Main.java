@@ -71,7 +71,7 @@ public class Main {
 
         Queue<Integer> q = new QueueImpl<>();
         for (int i=1;i<=7;i++){
-            q.Enque(i);
+            q.enque(i);
         }
 
 
@@ -80,8 +80,8 @@ public class Main {
         q.printQueue();
 
 
-        q.Deque();
-        q.Deque();
+        q.deque();
+        q.deque();
         System.out.println("Queue size After Dequing: "+q.size());
         q.printQueue();
 

@@ -1,9 +1,9 @@
 package org.Interfaces;
 
 public interface Queue <T>{
-     void Enque(T entry);
+     void enque(T entry);
 
-     T Deque();
+     T deque();
 
      T getFront();
 

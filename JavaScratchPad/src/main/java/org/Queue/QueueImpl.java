@@ -37,7 +37,7 @@ public class QueueImpl<T> implements org.Interfaces.Queue <T>{
 
     /*Add entry to Queue*/
     @Override
-    public void Enque(T entry) {
+    public void enque(T entry) {
         list.insertFirst(entry);
         if(list.size() == 1)
             setFront(list.getHead());
@@ -47,7 +47,7 @@ public class QueueImpl<T> implements org.Interfaces.Queue <T>{
 
     /*Remove Entry From Queue*/
     @Override
-    public T Deque() {
+    public T deque() {
 
         T frontVal = getFront();
         list.removeLast();
