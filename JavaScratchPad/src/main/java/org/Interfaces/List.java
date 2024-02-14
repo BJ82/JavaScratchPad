@@ -22,49 +22,34 @@ public interface List <T>{
 
     boolean isEmpty();
 
-    Node<T> getHead();
-
-    public default void fwrdTrvsl(Node<T> n) {
-
-        if(null == n)
-            return;
-
-        System.out.println(n.getData());
-        fwrdTrvsl(n.getNext());
+    private Node<T> getHead() {
+        return null;
     }
 
-    public default void revrsTrvsl(Node<T> n) {
-
-        if(n == null){
-
-            return;
-        }
-
-        revrsTrvsl(n.getNext());
-        System.out.println(n.getData());
-    }
-
-     public default Node<T> getLastNode(){
-
-         if(getHead() == null)
-             return null;
-
-         Node<T> temp = getHead();
-
-         while(temp.getNext() != null){
-             temp = temp.getNext();
-         }
-         return temp;
-
-    }
-
-    public default Node<T> getNode(int index){
+    public default T get(int index){
         Node<T> temp = getHead();
+        T val = null;
+        for(int i=0;i<=index;i++){
 
-        for(int i=1;i<index;i++){
+            if(i == index){
+                val = temp.getData();
+                break;
+            }
             temp = temp.getNext();
         }
-        return temp;
+        return val;
     }
+
+    public default T getFirst(){
+        return get(0);
+    }
+
+    public default T getLast(){
+        return get(size()-1);
+    }
+
+    public void printFwd();
+
+    public void printRvr();
 
 }

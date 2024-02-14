@@ -7,13 +7,13 @@ import org.LinkList.Node;
 public class Stack <T>{
 
 
-    private Node<T> top;
+    private T top;//change type to T
 
-    public Node<T> getTop() {
+    public T getTop() {
         return top;
-    }
+    }//change return type to T
 
-    private void setTop(Node<T> top) {
+    private void setTop(T top) {//change parameter to T
         this.top = top;
     }
 
@@ -21,7 +21,7 @@ public class Stack <T>{
 
     private final LinkList<T> list;
 
-    private LinkList<T> getlist() {
+    private LinkList<T> getList() {
         return list;
     }
 
@@ -35,8 +35,8 @@ public class Stack <T>{
 
     public void push(T entry){
 
-      getlist().insertFirst(entry);
-      setTop(getlist().getHead());
+      getList().insertFirst(entry);
+        setTop(getList().get(0));//change to setTop(getList().get(0))
     }
 
 
@@ -45,9 +45,9 @@ public class Stack <T>{
         if(getTop()==null)
             return null;
 
-        T data = getlist().getHead().getData();
-        getlist().removeFirst();
-        setTop(getlist().getHead());
+        T data = getList().get(0);//change to getList().get(0)
+        getList().removeFirst();
+        setTop(getList().get(0));//change to setTop(getList().get(0))
         return data;
     }
 
@@ -59,22 +59,21 @@ public class Stack <T>{
 
     public T getTopEntry(){
 
-        if(getlist().getHead()==null)
+        if(getList().get(0)==null)//change to getList().get(0)
             return null;
-        return getlist().getHead().getData();
+        return getList().get(0); //change to getList().get(0)
     }
 
 
     public void print(){
-        if(getlist().getHead() == null){
+        if(getList().get(0) == null){
             System.out.println("Stack is Empty");
             return;
         }
-        Node<T> temp = getlist().getHead();
+
         System.out.println("Stack:");
-        while(temp!= null){
-            System.out.println(temp.getData()+" ");
-            temp = temp.getNext();
-        }
+        getList().printFwd();
+
+
     }
 }

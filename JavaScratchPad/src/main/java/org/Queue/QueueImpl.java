@@ -7,25 +7,26 @@ public class QueueImpl<T> implements org.Interfaces.Queue <T>{
 
     private final DoubleLinkList<T> list;
 
-    private Node <T> front;
+    private T front;//Change type to T
 
     public T getFront() {
 
-        return front.getData();
+        return front;
     }
 
-    private void setFront(Node <T> front) {
+    private void setFront(T front) { //Change parameter to T
         this.front = front;
     }
 
 
-    private Node <T> rear;
+    private T rear;//Change type to T
 
-    public Node <T> getRear() {
+    //Change return type to T
+    public T getRear() {
         return rear;
     }
 
-    private void setRear(Node <T> rear) {
+    private void setRear(T rear) {//Change parameter to T
         this.rear = rear;
     }
 
@@ -40,9 +41,9 @@ public class QueueImpl<T> implements org.Interfaces.Queue <T>{
     public void enque(T entry) {
         list.insertFirst(entry);
         if(list.size() == 1)
-            setFront(list.getHead());
+            setFront(list.get(0)); //Change to list.get(0)
 
-        setRear(list.getHead());
+        setRear(list.get(0)); //Change to list.get(0)
     }
 
     /*Remove Entry From Queue*/
@@ -51,7 +52,7 @@ public class QueueImpl<T> implements org.Interfaces.Queue <T>{
 
         T frontVal = getFront();
         list.removeLast();
-        setFront(list.getNode(list.size()));
+        setFront(list.get(list.size()-1));  //Change to setFront(list.get(list.size()-1)
         return frontVal;
     }
 
@@ -68,6 +69,6 @@ public class QueueImpl<T> implements org.Interfaces.Queue <T>{
     }
 
     public void printQueue(){
-        list.revrsTrvsl(list.getHead());
+        list.printRvr(); //Change to list.printRvr()
     }
 }

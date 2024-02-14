@@ -7,7 +7,7 @@ public class DoubleLinkList<T> implements List<T> {
 
     private Node<T> head;
 
-    public Node <T> getHead() {
+    private Node <T> getHead() {
         return head;
     }
 
@@ -151,6 +151,61 @@ public class DoubleLinkList<T> implements List<T> {
 
     private Node<T> createNode(T data){
         return new Node<>(data);
+    }
+
+    public void printFwd(){
+        fwrdTrvsl(getHead());
+    }
+
+    public void printRvr(){
+        revrsTrvsl(getHead());
+    }
+
+    //should be private in impl class
+    private void fwrdTrvsl(Node<T> n) {
+
+        if(null == n)
+            return;
+
+        System.out.println(n.getData());
+        fwrdTrvsl(n.getNext());
+    }
+
+    //should be private in impl class
+    private void revrsTrvsl(Node<T> n) {
+
+        if(n == null){
+
+            return;
+        }
+
+        revrsTrvsl(n.getNext());
+        System.out.println(n.getData());
+    }
+
+    //should be private in impl class
+    private Node<T> getLastNode(){
+
+        if(getHead() == null)
+            return null;
+
+        Node<T> temp = getHead();
+
+        while(temp.getNext() != null){
+            temp = temp.getNext();
+        }
+        return temp;
+
+    }
+
+    //should be private in impl class
+    private Node<T> getNode(int index){
+        Node<T> temp = getHead();
+
+        for(int i=1;i<index;i++){
+            temp = temp.getNext();
+        }
+        return temp;
     }
 
 }

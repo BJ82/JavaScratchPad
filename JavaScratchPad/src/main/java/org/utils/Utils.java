@@ -11,23 +11,6 @@ public class Utils {
 
     }
 
-    public static <T> void printToConsole(List<T> list){
-
-        if(isNull(list))
-            return;
-
-        if(isNull(list.getHead())){
-            System.out.println("List is Empty");
-            return;
-        }
-        Node<T> temp = list.getHead();
-        System.out.println("List:");
-        while(temp!= null){
-            System.out.println(temp.getData()+" ");
-            temp = temp.getNext();
-        }
-    }
-
     public static <T> void printToConsole(Map<T,T> map){
 
         map.forEach((key,value)-> System.out.println(key+" : "+value));

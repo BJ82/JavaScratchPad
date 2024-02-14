@@ -23,32 +23,32 @@ public class Main {
         System.out.println("Is sts Palindrome:"+ Utils.isPalindrome("sts"));
         System.out.println("Is 15151 Palindrome:" + Utils.isPalindrome(15151));
         List<Integer> list = new DoubleLinkList<>();
-        Utils.printToConsole(list);
+        list.printFwd(); //change to list.printFwd()
 
         for(int i=1;i<=6;i++){
             list.insertLast(i);
         }
-        Utils.printToConsole(list);
+        list.printFwd();//change to list.printFwd()
         list.reverse();
         System.out.println("After Reversing");
-        Utils.printToConsole(list);
+        list.printFwd();//change to list.printFwd()
         System.out.println("Inserting Entry at index 2");
         list.insert(1000,2);
-        Utils.printToConsole(list);
+        list.printFwd();//change to list.printFwd()
         list.remove(2);
         System.out.println("After removing Entry at index 2");
-        Utils.printToConsole(list);
+        list.printFwd();//change to list.printFwd()
         System.out.println("Size of List:"+list.size());
         list.removeLast();
         System.out.println("After removing last entry");
-        Utils.printToConsole(list);
+        list.printFwd();//change to list.printFwd()
         System.out.println("Size of List:"+list.size());
 
         System.out.println("Forward Traversal Of Link List:");
-        list.fwrdTrvsl(list.getHead());
+        list.printFwd();//change to list.printFwd()
 
         System.out.println("Reverse Traversal Of Link List:");
-        list.revrsTrvsl(list.getHead());
+        list.printFwd();//change to list.printRvr()
 
 
         System.out.println("Stack");
