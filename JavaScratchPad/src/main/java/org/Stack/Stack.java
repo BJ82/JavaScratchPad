@@ -7,16 +7,15 @@ import org.LinkList.Node;
 public class Stack <T>{
 
 
-    private T top;//change type to T
+    private T top;
 
     public T getTop() {
         return top;
-    }//change return type to T
+    }
 
     private void setTop(T top) {//change parameter to T
         this.top = top;
     }
-
 
 
     private final LinkList<T> list;
@@ -26,17 +25,15 @@ public class Stack <T>{
     }
 
 
-
     public Stack() {
         list = new LinkList<>();
     }
 
 
-
     public void push(T entry){
 
       getList().insertFirst(entry);
-        setTop(getList().get(0));//change to setTop(getList().get(0))
+        setTop(getList().get(0));
     }
 
 
@@ -45,9 +42,9 @@ public class Stack <T>{
         if(getTop()==null)
             return null;
 
-        T data = getList().get(0);//change to getList().get(0)
+        T data = getList().get(0);
         getList().removeFirst();
-        setTop(getList().get(0));//change to setTop(getList().get(0))
+        setTop(getList().get(0));
         return data;
     }
 
@@ -59,9 +56,9 @@ public class Stack <T>{
 
     public T getTopEntry(){
 
-        if(getList().get(0)==null)//change to getList().get(0)
+        if(getList().get(0)==null)
             return null;
-        return getList().get(0); //change to getList().get(0)
+        return getList().get(0);
     }
 
 

@@ -1,13 +1,12 @@
 package org.Queue;
 
 import org.LinkList.DoubleLinkList;
-import org.LinkList.Node;
 
 public class QueueImpl<T> implements org.Interfaces.Queue <T>{
 
     private final DoubleLinkList<T> list;
 
-    private T front;//Change type to T
+    private T front;
 
     public T getFront() {
 
@@ -19,9 +18,8 @@ public class QueueImpl<T> implements org.Interfaces.Queue <T>{
     }
 
 
-    private T rear;//Change type to T
+    private T rear;
 
-    //Change return type to T
     public T getRear() {
         return rear;
     }
@@ -41,9 +39,9 @@ public class QueueImpl<T> implements org.Interfaces.Queue <T>{
     public void enque(T entry) {
         list.insertFirst(entry);
         if(list.size() == 1)
-            setFront(list.get(0)); //Change to list.get(0)
+            setFront(list.get(0));
 
-        setRear(list.get(0)); //Change to list.get(0)
+        setRear(list.get(0));
     }
 
     /*Remove Entry From Queue*/
@@ -52,7 +50,7 @@ public class QueueImpl<T> implements org.Interfaces.Queue <T>{
 
         T frontVal = getFront();
         list.removeLast();
-        setFront(list.get(list.size()-1));  //Change to setFront(list.get(list.size()-1)
+        setFront(list.get(list.size()-1));
         return frontVal;
     }
 
@@ -69,6 +67,6 @@ public class QueueImpl<T> implements org.Interfaces.Queue <T>{
     }
 
     public void printQueue(){
-        list.printRvr(); //Change to list.printRvr()
+        list.printRvr();
     }
 }

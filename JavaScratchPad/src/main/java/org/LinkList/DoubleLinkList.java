@@ -161,7 +161,6 @@ public class DoubleLinkList<T> implements List<T> {
         revrsTrvsl(getHead());
     }
 
-    //should be private in impl class
     private void fwrdTrvsl(Node<T> n) {
 
         if(null == n)
@@ -171,7 +170,6 @@ public class DoubleLinkList<T> implements List<T> {
         fwrdTrvsl(n.getNext());
     }
 
-    //should be private in impl class
     private void revrsTrvsl(Node<T> n) {
 
         if(n == null){
@@ -183,7 +181,6 @@ public class DoubleLinkList<T> implements List<T> {
         System.out.println(n.getData());
     }
 
-    //should be private in impl class
     private Node<T> getLastNode(){
 
         if(getHead() == null)
@@ -198,7 +195,6 @@ public class DoubleLinkList<T> implements List<T> {
 
     }
 
-    //should be private in impl class
     private Node<T> getNode(int index){
         Node<T> temp = getHead();
 
