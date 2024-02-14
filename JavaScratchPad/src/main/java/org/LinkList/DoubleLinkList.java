@@ -7,7 +7,7 @@ public class DoubleLinkList<T> implements List<T> {
 
     private Node<T> head;
 
-    private Node <T> getHead() {
+    public Node <T> getHead() {
         return head;
     }
 

@@ -22,19 +22,17 @@ public interface List <T>{
 
     boolean isEmpty();
 
-    private Node<T> getHead() {
-        return null;
-    }
+    Node<T> getHead();
 
     public default T get(int index){
         Node<T> temp = getHead();
         T val = null;
         for(int i=0;i<=index;i++){
 
-            if(i == index){
-                val = temp.getData();
-                break;
+            if(temp == null){
+                return (T) Integer.valueOf(-1);
             }
+            val = temp.getData();
             temp = temp.getNext();
         }
         return val;

@@ -53,7 +53,7 @@ public class Stack <T>{
 
 
     public boolean isEmpty(){
-        return getTop() == null;
+        return getTop() == Integer.valueOf(-1);
     }
 
 
