@@ -138,9 +138,9 @@ public class Main {
             }
         });
 
-        /*oddNoThread.start();
+        oddNoThread.start();
         evenNoThread.start();
-        evenNoThread.join();*/
+        evenNoThread.join();
 
         String str = "Singleton Object Count:";
         Thread t1 = new Thread(()->{
