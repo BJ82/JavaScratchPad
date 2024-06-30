@@ -58,13 +58,16 @@ public class LinkList <T> implements List<T> {
 
     /*Reverse the list*/
     public void reverse() {
-        Node<T> newHead = null;
 
-        while (getHead() != null) {
-            Node<T> temp = getHead();
-            setHead(next(getHead()));
-            temp.setNext(newHead);
-            newHead = temp;
+        Node<T> nextNode;
+        Node<T> newHead=null;
+        Node<T> currentNode = getHead();
+
+        while(currentNode !=null){
+            nextNode = currentNode.getNext();
+            currentNode.setNext(newHead);
+            newHead = currentNode;
+            currentNode = nextNode;
         }
         setHead(newHead);
     }
