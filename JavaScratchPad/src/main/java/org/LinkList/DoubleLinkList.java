@@ -111,10 +111,21 @@ public class DoubleLinkList<T> implements List<T> {
     }
 
     public void reverse(){
-        reverseDLinkList(null);
+        Node<T> nextNode;
+        Node<T> newHead=null;
+        Node<T> currentNode = getHead();
+
+        while(currentNode !=null){
+            nextNode = currentNode.getNext();
+            currentNode.setNext(newHead);
+            currentNode.setPrev(currentNode.getNext());
+            newHead = currentNode;
+            currentNode = nextNode;
+        }
+        setHead(newHead);
     }
 
-    private void reverseDLinkList(Node<T> newHead){
+    /*private void reverseDLinkList(Node<T> newHead){
 
         if(getHead() == null){
             setHead(newHead);
@@ -128,7 +139,7 @@ public class DoubleLinkList<T> implements List<T> {
         newHead = temp;
 
         reverseDLinkList(newHead);
-    }
+    }*/
 
     public int size(){
 
