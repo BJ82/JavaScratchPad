@@ -1,9 +1,6 @@
 package org.tree;
 
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.Map;
-import java.util.Queue;
+import java.util.*;
 
 public class BST {
 
@@ -266,6 +263,33 @@ public class BST {
         }
 
         return root;
+    }
+
+    public int getHeight(TreeNode root){
+        List<Integer> allPathLenghts = new ArrayList<>();
+        height(root,0,allPathLenghts);
+        Collections.sort(allPathLenghts);
+        return allPathLenghts.get(allPathLenghts.size()-1);
+    }
+
+    private void height(TreeNode node, int pathCount,List<Integer> allPathLenghts){
+        if(node !=null){
+            if(isLeafNode(node)){
+                allPathLenghts.add(pathCount);
+                return;
+            }
+            pathCount++;
+            height(node.left,pathCount,allPathLenghts);
+            height(node.right,pathCount,allPathLenghts);
+        }
+    }
+
+    private boolean isLeafNode(TreeNode node){
+        boolean isLeaf = false;
+        if(node.left == null && node.right == null)
+            isLeaf = true;
+
+        return isLeaf;
     }
 
 }
