@@ -266,23 +266,26 @@ public class BST {
     }
 
     public int getHeight(TreeNode root){
-        Set<Integer> allPathLengths = height(root,0);
-        int len = allPathLengths.toArray().length;
-        return (int) allPathLengths.toArray()[len-1];
+
+        return height(root,0);
     }
 
-    private Set height(TreeNode node, int pathCount){
-        Set<Integer> allPathLengths = new TreeSet<>();
+    private int height(TreeNode node, int pathCount){
+        int pathLength = pathCount;
+
         if(node !=null){
             if(isLeafNode(node)){
-                allPathLengths.add(pathCount);
-                 return allPathLengths;
+
+                 return pathCount;
             }
             pathCount++;
-            allPathLengths.addAll(height(node.left,pathCount));
-            allPathLengths.addAll(height(node.right,pathCount));
+
+            int pathLen1 = height(node.left,pathCount);
+            int pathLen2 = height(node.right,pathCount);
+            pathLength =  Math.max(pathLen1,pathLen2);
         }
-        return allPathLengths;
+
+        return pathLength;
     }
 
     private boolean isLeafNode(TreeNode node){

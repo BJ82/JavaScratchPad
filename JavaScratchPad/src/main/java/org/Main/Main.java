@@ -221,13 +221,16 @@ public class Main {
         TreeNode root = BST.buildTree(t);
         BST bstree = new BST();*/
 
-        String t = "4 N 7 6 8 5 N N 9 N 10";
-        //String t = "10 20 N N 30 N 40";
-        //String t = "12 8 18 5 11 N N";
-        //String t = "12 8 18 5 11 N N N N 9 N";
+
+        String t = "4 N 7 6 8 5 N N 9 N 10"; //height = 4
+        //String t = "10 20 N N 30 N 40"; //height = 3
+        //String t = "12 8 18 5 11 N N";//height = 2
+        //String t = "12 8 18 5 11 N N N N 9 N";//height = 3
+
+
         TreeNode root = BST.buildTree(t);
         BST bstree = new BST();
-        bstree.deleteNode(root,7);
+        bstree.deleteNode(root,7);//height = 4
         System.out.println(bstree.isValidBST(root));
         System.out.println("Tree Height: "+bstree.getHeight(root));
     }
