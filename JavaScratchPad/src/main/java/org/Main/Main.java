@@ -222,7 +222,7 @@ public class Main {
         BST bstree = new BST();*/
 
 
-        //String t = "4 N 7 6 8 5 N N 9 N 10"; //height = 4
+        String t = "4 N 7 6 8 5 N N 9 N 10"; //height = 4
         //String t = "10 20 N N 30 N 40"; //height = 3
         //String t = "12 8 18 5 11 N N";//height = 2
         //String t = "12 8 18 5 11 N N N N 9 N";//height = 3
