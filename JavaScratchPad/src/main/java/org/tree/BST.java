@@ -1,6 +1,8 @@
 package org.tree;
 
 import java.util.*;
+import java.util.concurrent.ArrayBlockingQueue;
+import java.util.concurrent.LinkedBlockingQueue;
 
 public class BST {
 
@@ -296,4 +298,19 @@ public class BST {
         return isLeaf;
     }
 
+    public void BreadthFirstTraversal(TreeNode root){
+
+        Queue<TreeNode> queue = new LinkedBlockingQueue<>();
+        queue.add(root);
+
+        while(!queue.isEmpty()){
+            if(queue.peek().left!=null)
+                queue.add(queue.peek().left);
+
+            if(queue.peek().right!=null)
+                queue.add(queue.peek().right);
+
+            System.out.println(""+queue.poll().val);
+        }
+    }
 }

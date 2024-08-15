@@ -233,6 +233,7 @@ public class Main {
         bstree.deleteNode(root,7);//height = 4
         System.out.println(bstree.isValidBST(root));
         System.out.println("Tree Height: "+bstree.getHeight(root));
+        bstree.BreadthFirstTraversal(root);
     }
 
     public static void sleepThread(int milliSec){
