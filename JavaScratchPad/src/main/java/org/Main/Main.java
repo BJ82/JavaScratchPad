@@ -138,9 +138,9 @@ public class Main {
             }
         });
 
-        oddNoThread.start();
+        /*oddNoThread.start();
         evenNoThread.start();
-        evenNoThread.join();
+        evenNoThread.join();*/
 
         String str = "Singleton Object Count:";
         Thread t1 = new Thread(()->{
@@ -222,6 +222,9 @@ public class Main {
         BST bstree = new BST();*/
 
         String t = "4 N 7 6 8 5 N N 9 N 10";
+        //String t = "10 20 N N 30 N 40";
+        //String t = "12 8 18 5 11 N N";
+        //String t = "12 8 18 5 11 N N N N 9 N";
         TreeNode root = BST.buildTree(t);
         BST bstree = new BST();
         bstree.deleteNode(root,7);
