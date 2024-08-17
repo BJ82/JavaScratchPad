@@ -1,13 +1,12 @@
 package org.tree;
 
 import java.util.*;
-import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
 
 public class BST {
 
     private Map<Integer,Integer> counter = new HashMap<>();
-    public boolean isValidBST(TreeNode root) {
+    public boolean isValidBST(TreeNode<Comparable> root) {
         boolean isBST = false;
 
         if(hasDuplicate(root))
@@ -23,31 +22,46 @@ public class BST {
 
         return isBST;
     }
-    private boolean isNull(TreeNode node){
+    private boolean isNull(TreeNode<Comparable> node){
         boolean isNull = false;
         if(node == null){
             isNull = true;
         }
         return isNull;
     }
-    private boolean isEmptyTree(TreeNode root){
+    private boolean isEmptyTree(TreeNode<Comparable> root){
         if(!isNull(root))
             return isNull(root.left) && isNull(root.right);
         return true;
     }
 
-    private boolean isLess(TreeNode node1,TreeNode node2){
-        if(!isNull(node1) && !isNull(node2))
-            return node1.val < node2.val;
-        return false;
+    private boolean isLess(TreeNode<Comparable> node1,TreeNode<Comparable> node2){
+
+        boolean isLess = false;
+        if(!isNull(node1) && !isNull(node2)){
+            isLess =  node1.val.compareTo(node2.val) < 0;
+        }
+
+        return isLess;
     }
 
-    private boolean isGreater(TreeNode node1,TreeNode node2){
-        if(!isNull(node1) && !isNull(node2))
-            return node1.val > node2.val;
-        return false;
+    private boolean isGreater(TreeNode<Comparable> node1,TreeNode<Comparable> node2){
+
+        boolean isGreater  = false;
+        if(!isNull(node1) && !isNull(node2)){
+            isGreater =  node1.val.compareTo(node2.val) > 0;
+        }
+
+        return isGreater;
     }
-    private int childCount(TreeNode root){
+
+    private <T extends Comparable> boolean isLess(T data,TreeNode<Comparable> root){
+        return data.compareTo(root.val) <  0;
+    }
+    private <T extends Comparable> boolean isGreater(T data,TreeNode<Comparable> root){
+        return data.compareTo(root.val) > 0;
+    }
+    private int childCount(TreeNode<Comparable> root){
 
         int childCount = -1;
         if(root.left == null && root.right == null){
@@ -64,7 +78,7 @@ public class BST {
 
     }
 
-    private TreeNode min(TreeNode root){
+    private TreeNode<Comparable> min(TreeNode<Comparable> root){
         if(isNull(root))
             return new TreeNode(100000);
 
@@ -74,7 +88,7 @@ public class BST {
         return min(root.left);
     }
 
-    private TreeNode max(TreeNode root){
+    private TreeNode<Comparable> max(TreeNode<Comparable> root){
         if(isNull(root))
             return new TreeNode(0);
 
@@ -84,7 +98,7 @@ public class BST {
         return max(root.right);
     }
 
-    private void scanDuplicate(TreeNode root){
+    private void scanDuplicate(TreeNode<Comparable> root){
 
         if(root == null)
             return;
@@ -98,7 +112,7 @@ public class BST {
 
         count++;
 
-        counter.put(root.val,count);
+        counter.put((Integer) root.val,count);
 
         scanDuplicate(root.left);
 
@@ -106,7 +120,7 @@ public class BST {
 
     }
 
-    private boolean hasDuplicate(TreeNode root){
+    private boolean hasDuplicate(TreeNode<Comparable> root){
 
         scanDuplicate(root);
 
@@ -121,11 +135,11 @@ public class BST {
         return false;
     }
 
-    public TreeNode deleteNode(TreeNode root, int key) {
+    public TreeNode<Comparable> deleteNode(TreeNode<Comparable> root, int key) {
         return delete(null,root,key);
     }
 
-    private TreeNode delete(TreeNode parent,TreeNode root,int data){
+    private TreeNode<Comparable> delete(TreeNode<Comparable> parent,TreeNode<Comparable> root,int data){
 
         if(root == null) return null;
 
@@ -153,16 +167,11 @@ public class BST {
         return root;
     }
 
-    private boolean isEqual(int data,TreeNode root){
-        return data == root.val;
+    private boolean isEqual(int data,TreeNode<Comparable> root){
+        return data == (int) root.val;
     }
 
-    private boolean isLess(int data,TreeNode root){
-        return data < root.val;
-    }
-    private boolean isGreater(int data,TreeNode root){
-        return data > root.val;
-    }
+
 
     private TreeNode reorderRoot(TreeNode root){
 
@@ -310,35 +319,42 @@ public class BST {
             if(queue.peek().right!=null)
                 queue.add(queue.peek().right);
 
-            System.out.print(" "+queue.poll().val);
+            System.out.println(""+queue.poll().val);
         }
     }
 
-    public void preOrder(TreeNode root){
-        if(root == null)
-            return;
-        System.out.print(root.val+" ");
-        preOrder(root.left);
-        preOrder(root.right);
-
+    public TreeNode getRoot() {
+        return root;
     }
 
-    public void inOrder(TreeNode root){
-        if(root == null)
-            return;
-        inOrder(root.left);
-        System.out.print(root.val+" ");
-        inOrder(root.right);
-
+    private void setRoot(TreeNode root) {
+        this.root = root;
     }
 
-    public void postOrder(TreeNode root){
+    private TreeNode<Comparable> root;
 
-        if(root == null)
-            return;
-        postOrder(root.left);
-        postOrder(root.right);
-        System.out.print(root.val+" ");
+    public <T extends Comparable> TreeNode<Comparable> insert(T data){
+        return add(getRoot(),data);
+    }
 
+    private <T extends Comparable> TreeNode<Comparable> add(TreeNode root,T data){
+
+        TreeNode<Comparable> node = null;
+        if(root == null){
+            node = new TreeNode(data);
+            setRoot(node);
+            return node;
+        }
+        if(isLess(data,root)){
+            node = add(root.left,data);
+            root.left = node;
+            setRoot(root);
+        }
+        if(isGreater(data,root)){
+            node = add(root.right,data);
+            root.right = node;
+            setRoot(root);
+        }
+        return getRoot();
     }
 }

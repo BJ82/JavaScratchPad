@@ -222,28 +222,26 @@ public class Main {
         BST bstree = new BST();*/
 
 
-        String t = "4 N 7 6 8 5 N N 9 N N N 10"; //height = 4
+        String t = "4 N 7 6 8 5 N N 9 N 10"; //height = 4
         //String t = "10 20 N N 30 N 40"; //height = 3
         //String t = "12 8 18 5 11 N N";//height = 2
         //String t = "12 8 18 5 11 N N N N 9 N";//height = 3
 
 
-        TreeNode root = BST.buildTree(t);
+        //TreeNode root = BST.buildTree(t);
+        TreeNode root = null;
         BST bstree = new BST();
-        bstree.deleteNode(root,7);//height = 4
-        System.out.println("Is Valid BST: "+bstree.isValidBST(root));
+        root = bstree.insert(4);
+        root = bstree.insert(7);
+        root = bstree.insert(6);
+        root = bstree.insert(8);
+        root = bstree.insert(5);
+        root = bstree.insert(9);
+        root = bstree.insert(10);
+        root = bstree.deleteNode(root,7);//height = 4
+        System.out.println(bstree.isValidBST(root));
         System.out.println("Tree Height: "+bstree.getHeight(root));
-        System.out.print("Breadth First Traversal: ");
         bstree.BreadthFirstTraversal(root);
-        System.out.println();
-        System.out.print("Pre Order BTree Traversal: ");
-        bstree.preOrder(root);
-        System.out.println();
-        System.out.print("In Order BTree Traversal: ");
-        bstree.inOrder(root);
-        System.out.println();
-        System.out.print("Post Order BTree Traversal: ");
-        bstree.postOrder(root);
     }
 
     public static void sleepThread(int milliSec){
