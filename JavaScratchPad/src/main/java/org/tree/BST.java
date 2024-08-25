@@ -276,28 +276,22 @@ public class BST {
         return root;
     }
 
-    public int getHeight(TreeNode root){
+    public int height(TreeNode root){
+        int height = 0;
 
-        return height(root,0);
+        if(root == null)
+            return -1;
+
+        height++;
+
+        int leftHeight = height(root.left) + height;
+        int rightheight = height(root.right) + height;
+
+        return Math.max(leftHeight,rightheight);
+
     }
 
-    private int height(TreeNode node, int pathCount){
-        int pathLength = pathCount;
 
-        if(node !=null){
-            if(isLeafNode(node)){
-
-                 return pathCount;
-            }
-            pathCount++;
-
-            int pathLen1 = height(node.left,pathCount);
-            int pathLen2 = height(node.right,pathCount);
-            pathLength =  Math.max(pathLen1,pathLen2);
-        }
-
-        return pathLength;
-    }
 
     private boolean isLeafNode(TreeNode node){
         boolean isLeaf = false;
@@ -307,7 +301,7 @@ public class BST {
         return isLeaf;
     }
 
-    public void BreadthFirstTraversal(TreeNode root){
+    public void breadthFirstTraversal(TreeNode root){
 
         Queue<TreeNode> queue = new LinkedBlockingQueue<>();
         queue.add(root);
@@ -384,5 +378,31 @@ public class BST {
             setRoot(root);
         }
         return getRoot();
+    }
+
+    public int count(TreeNode root){
+        int count = 0;
+
+        if(root == null)
+            return count;
+
+        count++;
+        count += count(root.left);
+        count += count(root.right);
+
+        return count;
+    }
+
+    public int sum(TreeNode root){
+
+        if(root == null)
+            return 0;
+
+        int sum = (int) root.val;
+
+        sum += sum(root.left);
+        sum += sum(root.right);
+
+        return sum;
     }
 }

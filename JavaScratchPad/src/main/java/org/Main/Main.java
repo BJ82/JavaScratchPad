@@ -238,11 +238,11 @@ public class Main {
         root = bstree.insert(5);
         root = bstree.insert(9);
         root = bstree.insert(10);
-        root = bstree.deleteNode(root,7);//height = 4
+        //root = bstree.deleteNode(root,7);//height = 4
         System.out.println("Is Valid BST: "+bstree.isValidBST(root));
-        System.out.println("Tree Height: "+bstree.getHeight(root));
+        System.out.println("Tree Height: "+bstree.height(root));
         System.out.print("Breadth First Traversal: ");
-        bstree.BreadthFirstTraversal(root);
+        bstree.breadthFirstTraversal(root);
         System.out.println();
         System.out.print("Pre Order BTree Traversal: ");
         bstree.preOrder(root);
@@ -252,6 +252,10 @@ public class Main {
         System.out.println();
         System.out.print("Post Order BTree Traversal: ");
         bstree.postOrder(root);
+        System.out.println("");
+        System.out.println("No Of Nodes In Tree: "+bstree.count(root));
+        System.out.println("");
+        System.out.println("Sum Of Nodes In Tree: "+bstree.sum(root));
     }
 
     public static void sleepThread(int milliSec){
