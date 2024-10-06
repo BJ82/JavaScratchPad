@@ -274,7 +274,7 @@ public class Utils {
 
             if(amt >= notes[i]){
                 count.put(notes[i],amt/notes[i]);
-                amt = amt-notes[i];
+                amt = amt % notes[i];
             }
         }
         return count;

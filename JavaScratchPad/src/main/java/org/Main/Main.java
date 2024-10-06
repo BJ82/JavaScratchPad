@@ -162,7 +162,7 @@ public class Main {
         });
         t3.start();
 
-        Utils.printToConsole(Utils.currencyCount(868));
+        Utils.printToConsole(Utils.currencyCount(2456));
 
         Residence f1 = new Flat("FLAT-ONE",1);
         Residence f2 = new Flat("FLAT-TWO",2);
