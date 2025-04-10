@@ -279,4 +279,29 @@ public class Utils {
         }
         return count;
     }
+
+    public static int firstMissingPositive(int[] nums) {
+
+        nums =  Arrays.stream(nums).distinct().sorted().toArray();
+        int firstMissingPostv = 0;
+        boolean foundOne = false;
+        for(int k=0; k<nums.length; k++){
+
+            firstMissingPostv = nums[k];
+            if(firstMissingPostv == 1)
+                foundOne = true;
+
+            if(foundOne && k <= nums.length - 2){
+                if(++firstMissingPostv != nums[k+1]){
+                    return firstMissingPostv;
+                }
+            }
+        }
+
+        if(!foundOne)
+            return 1;
+        else
+            return ++firstMissingPostv;
+
+    }
 }

@@ -256,6 +256,7 @@ public class Main {
         System.out.println("No Of Nodes In Tree: "+bstree.count(root));
         System.out.println("");
         System.out.println("Sum Of Nodes In Tree: "+bstree.sum(root));
+
     }
 
     public static void sleepThread(int milliSec){
