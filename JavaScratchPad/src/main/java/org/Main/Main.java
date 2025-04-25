@@ -29,6 +29,9 @@ public class Main {
             list.insertLast(i);
         }
         list.printFwd();//change to list.printFwd()
+        Utils.deleteEven(list.getHead());
+        System.out.println("After Deleting Even Nodes");
+        list.printFwd();
         list.reverse();
         System.out.println("After Reversing");
         list.printFwd();//change to list.printFwd()

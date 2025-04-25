@@ -291,10 +291,10 @@ public class Utils {
             if(firstMissingPostv == 1)
                 foundOne = true;
 
-            if(foundOne && k <= nums.length - 2){
-                if(++firstMissingPostv != nums[k+1]){
-                    return firstMissingPostv;
-                }
+            if(foundOne && isLessThanEqual(k,nums.length - 2)
+                    && isNotEqual(++firstMissingPostv,nums[k+1])){
+
+                return firstMissingPostv;
             }
         }
 
@@ -304,4 +304,47 @@ public class Utils {
             return ++firstMissingPostv;
 
     }
+    public static boolean isNotEqual(int a,int b){
+        return a != b ;
+    }
+
+    public static boolean isLessThanEqual(int a,int b){
+        return a <= b;
+    }
+    public static Node<Integer> deleteEven(Node<Integer> head){
+
+        Node<Integer> listHeadOdd = null;
+        Node<Integer> currentOdd = null;
+
+        Node<Integer> current = head;
+        while(current != null){
+
+            if(isOddNode(current)){
+
+                if(listHeadOdd == null){
+                    listHeadOdd = current;
+                    currentOdd = listHeadOdd;
+                }
+                else{
+                    currentOdd.setNext(current);
+                    currentOdd = currentOdd.getNext();
+                }
+            }
+
+            current = current.getNext();
+        }
+        return listHeadOdd;
+    }
+
+    public static boolean isEvenNode(Node<Integer> n){
+
+        int data = n.getData();
+        return  data % 2 == 0;
+    }
+
+    public static boolean isOddNode(Node<Integer> n){
+        return !isEvenNode(n);
+    }
 }
+
+
