@@ -1,5 +1,6 @@
 # JavaScratchPad
 
+
 DataStructures:
  1)LinkList
  2)DoubleLinkList
