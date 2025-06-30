@@ -19,7 +19,8 @@ Utilities:
  4) currencyCount: Count no of each denomination give a amount
  5) copyArray: copies one array to another fully or as per index
  6) printToConsole: print's to console(sysout) the contents of either array/list/map
- 7) Print odd/even numbers by multiple threads & more..
+ 7) Print odd/even numbers by multiple threads
+ 8) First Missing Positive & more...
 
 Design Pattern:
 1) Singleton 
