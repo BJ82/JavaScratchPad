@@ -1,15 +1,10 @@
 # JavaScratchPad
-Implementation For
 
 DataStructures:
  1)LinkList
- 
  2)DoubleLinkList
- 
  3)Queues
- 
  4)Stacks
- 
  5)Binary Search Tree
  
 Algorithms:
@@ -24,7 +19,7 @@ Utilities:
  4) currencyCount: Count no of each denomination give a amount
  5) copyArray: copies one array to another fully or as per index
  6) printToConsole: print's to console(sysout) the contents of either array/list/map
- 7) Print odd/even numbers by multiple threads
+ 7) Print odd/even numbers by multiple threads & more..
 
 Singleton Design Pattern
 
