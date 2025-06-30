@@ -21,9 +21,8 @@ Utilities:
  6) printToConsole: print's to console(sysout) the contents of either array/list/map
  7) Print odd/even numbers by multiple threads & more..
 
-Singleton Design Pattern
-
-Composite Design Pattern
-
-Visitor Pattern
+Design Pattern:
+1) Singleton 
+2) Composite  
+3) Visitor 
  
